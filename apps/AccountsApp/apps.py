@@ -1,5 +1,6 @@
 from django.apps import AppConfig
 
 
-class AccountsappConfig(AppConfig):
-    name = 'AccountsApp'
+class AccountsAppConfig(AppConfig):
+    default_auto_field = 'django.db.models.BigAutoField'
+    name = 'apps.AccountsApp'

@@ -1,5 +1,6 @@
 from django.apps import AppConfig
 
 
-class AmrappConfig(AppConfig):
-    name = 'AmrApp'
+class AmrAppConfig(AppConfig):
+    default_auto_field = 'django.db.models.BigAutoField'
+    name = 'apps.AmrApp'

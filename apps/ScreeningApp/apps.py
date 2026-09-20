@@ -1,5 +1,6 @@
 from django.apps import AppConfig
 
 
-class ScreeningappConfig(AppConfig):
-    name = 'ScreeningApp'
+class ScreeningAppConfig(AppConfig):
+    default_auto_field = 'django.db.models.BigAutoField'
+    name = 'apps.ScreeningApp'
