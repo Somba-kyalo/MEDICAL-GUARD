@@ -1,0 +1,59 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | MEDIGUARD</title>
+
+    <link rel="stylesheet" href="{% static 'core/core.css' %}">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="{% url 'core:home' %}">MEDIGUARD</a>
+
+            <div>
+                <a href="{% url 'core:about' %}">About</a>
+                <a href="{% url 'core:dashboard' %}">Dashboard</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h1>MEDIGUARD Dashboard</h1>
+
+            <p>
+                Central workspace for the MEDIGUARD healthcare platform.
+            </p>
+        </section>
+
+        <section>
+            <div>
+                <h2>Patients</h2>
+                <p>Manage patient records and longitudinal information.</p>
+            </div>
+
+            <div>
+                <h2>Screening</h2>
+                <p>Collect and review structured screening information.</p>
+            </div>
+
+            <div>
+                <h2>Referrals</h2>
+                <p>Coordinate referrals and track their progress.</p>
+            </div>
+
+            <div>
+                <h2>Follow-up</h2>
+                <p>Monitor post-screening and post-referral care.</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="{% static 'core/core.js' %}"></script>
+</body>
+</html>

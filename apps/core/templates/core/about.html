@@ -1,0 +1,45 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | MEDIGUARD</title>
+
+    <link rel="stylesheet" href="{% static 'core/core.css' %}">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="{% url 'core:home' %}">MEDIGUARD</a>
+
+            <div>
+                <a href="{% url 'core:about' %}">About</a>
+                <a href="{% url 'core:dashboard' %}">Dashboard</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h1>About MEDIGUARD</h1>
+
+            <p>
+                MEDIGUARD is designed to support healthcare workflows through
+                structured screening, clinical decision support, antimicrobial
+                resistance monitoring, referrals, facility coordination,
+                follow-up care, analytics, notifications, and auditing.
+            </p>
+
+            <p>
+                The platform is designed around the workflow:
+                Detect → Assess → Protect → Connect → Follow Up → Learn.
+            </p>
+        </section>
+    </main>
+
+    <script src="{% static 'core/core.js' %}"></script>
+</body>
+</html>

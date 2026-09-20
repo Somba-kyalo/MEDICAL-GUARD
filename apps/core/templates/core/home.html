@@ -1,0 +1,39 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEDIGUARD</title>
+
+    <link rel="stylesheet" href="{% static 'core/core.css' %}">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="{% url 'core:home' %}">MEDIGUARD</a>
+
+            <div>
+                <a href="{% url 'core:about' %}">About</a>
+                <a href="{% url 'core:dashboard' %}">Dashboard</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h1>MEDIGUARD</h1>
+            <p>
+                A digital healthcare platform for screening, clinical support,
+                antimicrobial resistance monitoring, referrals, and follow-up care.
+            </p>
+
+            <a href="{% url 'core:dashboard' %}">Open Dashboard</a>
+        </section>
+    </main>
+
+    <script src="{% static 'core/core.js' %}"></script>
+</body>
+</html>
