@@ -7,8 +7,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login | MEDIGUARD</title>
-    <link rel="stylesheet" href="{% static 'core/core.css' %}">
+    <link rel="stylesheet" href="{% static 'css/AccountsApp/AccountsApp.css' %}">
 </head>
+
 <body>
 
 <header>
@@ -25,23 +26,25 @@
 
 </header>
 
-<main>
-    <section>
-        <h1>Sign in</h1>
-        <p>Access your MEDIGUARD account.</p>
+<main class="accounts-main">
+    <section class="accounts-section">
 
+
+    <h1>Sign in</h1>
+    <p>Access your MEDIGUARD account.</p>
 
     {% if messages %}
         {% for message in messages %}
-            <p>{{ message }}</p>
+            <p class="accounts-message">{{ message }}</p>
         {% endfor %}
     {% endif %}
 
-    <form method="post">
+    <form method="post" class="accounts-form">
         {% csrf_token %}
 
-        <div>
+        <div class="accounts-field">
             <label for="username">Username</label>
+
             <input
                 type="text"
                 id="username"
@@ -51,8 +54,9 @@
             >
         </div>
 
-        <div>
+        <div class="accounts-field">
             <label for="password">Password</label>
+
             <input
                 type="password"
                 id="password"
@@ -65,10 +69,11 @@
         <button type="submit">Sign in</button>
     </form>
 
-    <p>
+    <p class="accounts-links">
         Don't have an account?
         <a href="{% url 'AccountsApp:register' %}">Create one</a>
     </p>
+
 </section>
 
 
