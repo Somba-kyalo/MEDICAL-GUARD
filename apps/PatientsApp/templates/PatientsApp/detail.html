@@ -1,0 +1,129 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Patient Details | MEDIGUARD</title>
+
+    <link rel="stylesheet" href="{% static 'css/PatientsApp/PatientsApp.css' %}">
+</head>
+<body>
+
+<header>
+    <nav>
+        <a href="{% url 'core:home' %}">MEDIGUARD</a>
+
+        <div>
+            <a href="{% url 'PatientsApp:list' %}">Patients</a>
+            <a href="{% url 'AccountsApp:profile' %}">Profile</a>
+            <a href="{% url 'AccountsApp:logout' %}">Logout</a>
+        </div>
+    </nav>
+</header>
+
+<main class="patients-main">
+
+    <section class="patients-section">
+        <h1>
+            {{ patient.user.first_name }}
+            {{ patient.user.last_name }}
+        </h1>
+
+        <p>
+            Patient profile for {{ patient.user.username }}.
+        </p>
+
+        <div class="patients-actions">
+            <a class="patients-action" href="{% url 'PatientsApp:edit' patient.id %}">
+                Edit Patient
+            </a>
+
+            <a class="patients-action" href="{% url 'PatientsApp:timeline' patient.id %}">
+                View Timeline
+            </a>
+        </div>
+    </section>
+
+    {% if messages %}
+        {% for message in messages %}
+            <p class="patients-message">{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+
+    <section class="patients-profile-grid">
+
+        <div class="patients-card">
+            <h2>Personal information</h2>
+
+            <p>
+                <strong>Username:</strong>
+                {{ patient.user.username }}
+            </p>
+
+            <p>
+                <strong>First name:</strong>
+                {{ patient.user.first_name|default:"Not provided" }}
+            </p>
+
+            <p>
+                <strong>Last name:</strong>
+                {{ patient.user.last_name|default:"Not provided" }}
+            </p>
+
+            <p>
+                <strong>Date of birth:</strong>
+                {{ patient.date_of_birth }}
+            </p>
+
+            <p>
+                <strong>Sex:</strong>
+                {{ patient.get_sex_display }}
+            </p>
+        </div>
+
+        <div class="patients-card">
+            <h2>Contact information</h2>
+
+            <p>
+                <strong>Phone:</strong>
+                {{ patient.phone_number }}
+            </p>
+
+            <p>
+                <strong>Address:</strong>
+                {{ patient.address }}
+            </p>
+
+            <p>
+                <strong>Emergency contact:</strong>
+                {{ patient.emergency_contact_name }}
+            </p>
+
+            <p>
+                <strong>Emergency phone:</strong>
+                {{ patient.emergency_contact_phone }}
+            </p>
+        </div>
+
+        <div class="patients-card">
+            <h2>Record information</h2>
+
+            <p>
+                <strong>Created:</strong>
+                {{ patient.created_at }}
+            </p>
+
+            <p>
+                <strong>Last updated:</strong>
+                {{ patient.updated_at }}
+            </p>
+        </div>
+
+    </section>
+
+</main>
+
+</body>
+</html>

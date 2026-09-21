@@ -1,0 +1,106 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Patients | MEDIGUARD</title>
+
+    <link rel="stylesheet" href="{% static 'css/PatientsApp/PatientsApp.css' %}">
+</head>
+<body>
+
+<header>
+    <nav>
+        <a href="{% url 'core:home' %}">MEDIGUARD</a>
+
+        <div>
+            <a href="{% url 'core:dashboard' %}">Dashboard</a>
+            <a href="{% url 'AccountsApp:profile' %}">Profile</a>
+            <a href="{% url 'AccountsApp:logout' %}">Logout</a>
+        </div>
+    </nav>
+</header>
+
+<main class="patients-main">
+
+    <section class="patients-section">
+        <h1>Patients</h1>
+
+        <p>
+            Manage patient profiles and access longitudinal patient information.
+        </p>
+
+        <a class="patients-action" href="{% url 'PatientsApp:create' %}">
+            Create Patient
+        </a>
+    </section>
+
+    <section class="patients-card">
+
+        <div class="patients-section-header">
+            <h2>Patient records</h2>
+            <p>{{ patients|length }} patient{{ patients|length|pluralize }}</p>
+        </div>
+
+        {% if patients %}
+            <div class="patients-table-wrapper">
+                <table class="patients-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Username</th>
+                            <th>Date of birth</th>
+                            <th>Sex</th>
+                            <th>Phone</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {% for patient in patients %}
+                            <tr>
+                                <td>
+                                    {{ patient.user.first_name }}
+                                    {{ patient.user.last_name }}
+                                </td>
+
+                                <td>{{ patient.user.username }}</td>
+
+                                <td>{{ patient.date_of_birth }}</td>
+
+                                <td>{{ patient.get_sex_display }}</td>
+
+                                <td>{{ patient.phone_number }}</td>
+
+                                <td class="patients-actions">
+                                    <a href="{% url 'PatientsApp:detail' patient.id %}">
+                                        View
+                                    </a>
+
+                                    <a href="{% url 'PatientsApp:edit' patient.id %}">
+                                        Edit
+                                    </a>
+
+                                    <a href="{% url 'PatientsApp:timeline' patient.id %}">
+                                        Timeline
+                                    </a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% else %}
+            <p class="patients-empty">
+                No patient profiles have been created yet.
+            </p>
+        {% endif %}
+
+    </section>
+
+</main>
+
+</body>
+</html>

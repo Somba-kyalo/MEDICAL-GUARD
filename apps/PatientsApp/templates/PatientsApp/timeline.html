@@ -1,0 +1,73 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Patient Timeline | MEDIGUARD</title>
+
+    <link rel="stylesheet" href="{% static 'css/PatientsApp/PatientsApp.css' %}">
+</head>
+<body>
+
+<header>
+    <nav>
+        <a href="{% url 'core:home' %}">MEDIGUARD</a>
+
+        <div>
+            <a href="{% url 'PatientsApp:list' %}">Patients</a>
+            <a href="{% url 'AccountsApp:profile' %}">Profile</a>
+            <a href="{% url 'AccountsApp:logout' %}">Logout</a>
+        </div>
+    </nav>
+</header>
+
+<main class="patients-main">
+
+    <section class="patients-section">
+        <h1>Patient Timeline</h1>
+
+        <p>
+            Longitudinal information for
+            {{ patient.user.first_name }}
+            {{ patient.user.last_name }}.
+        </p>
+    </section>
+
+    <section class="patients-card">
+
+        <h2>{{ patient.user.username }}</h2>
+
+        <p>
+            The patient's clinical timeline will appear here as
+            screening, referrals, follow-up, and other MEDIGUARD
+            records become available.
+        </p>
+
+        <div class="patients-timeline">
+            <div class="patients-timeline-item">
+                <h3>Patient profile created</h3>
+
+                <p>
+                    {{ patient.created_at }}
+                </p>
+
+                <p>
+                    Initial patient profile created in MEDIGUARD.
+                </p>
+            </div>
+        </div>
+
+    </section>
+
+    <section>
+        <a class="patients-action" href="{% url 'PatientsApp:detail' patient.id %}">
+            Back to Patient
+        </a>
+    </section>
+
+</main>
+
+</body>
+</html>
