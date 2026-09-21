@@ -1,0 +1,78 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | MEDIGUARD</title>
+    <link rel="stylesheet" href="{% static 'core/core.css' %}">
+</head>
+<body>
+
+<header>
+    <nav>
+        <a href="{% url 'core:home' %}">MEDIGUARD</a>
+
+
+    <div>
+        <a href="{% url 'core:about' %}">About</a>
+        <a href="{% url 'AccountsApp:register' %}">Register</a>
+    </div>
+</nav>
+
+
+</header>
+
+<main>
+    <section>
+        <h1>Sign in</h1>
+        <p>Access your MEDIGUARD account.</p>
+
+
+    {% if messages %}
+        {% for message in messages %}
+            <p>{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+
+    <form method="post">
+        {% csrf_token %}
+
+        <div>
+            <label for="username">Username</label>
+            <input
+                type="text"
+                id="username"
+                name="username"
+                required
+                autocomplete="username"
+            >
+        </div>
+
+        <div>
+            <label for="password">Password</label>
+            <input
+                type="password"
+                id="password"
+                name="password"
+                required
+                autocomplete="current-password"
+            >
+        </div>
+
+        <button type="submit">Sign in</button>
+    </form>
+
+    <p>
+        Don't have an account?
+        <a href="{% url 'AccountsApp:register' %}">Create one</a>
+    </p>
+</section>
+
+
+</main>
+
+</body>
+</html>

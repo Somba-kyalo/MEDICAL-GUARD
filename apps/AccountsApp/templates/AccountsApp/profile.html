@@ -1,0 +1,84 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile | MEDIGUARD</title>
+    <link rel="stylesheet" href="{% static 'core/core.css' %}">
+</head>
+<body>
+
+<header>
+    <nav>
+        <a href="{% url 'core:home' %}">MEDIGUARD</a>
+
+
+    <div>
+        <a href="{% url 'core:dashboard' %}">Dashboard</a>
+        <a href="{% url 'AccountsApp:logout' %}">Logout</a>
+    </div>
+</nav>
+
+
+</header>
+
+<main>
+    <section>
+        <h1>Your profile</h1>
+        <p>Account information associated with your MEDIGUARD account.</p>
+    </section>
+
+
+<section>
+    <div>
+        <h2>Account details</h2>
+
+        <p>
+            <strong>Username:</strong>
+            {{ user.username }}
+        </p>
+
+        <p>
+            <strong>Email:</strong>
+            {{ user.email|default:"Not provided" }}
+        </p>
+
+        <p>
+            <strong>First name:</strong>
+            {{ user.first_name|default:"Not provided" }}
+        </p>
+
+        <p>
+            <strong>Last name:</strong>
+            {{ user.last_name|default:"Not provided" }}
+        </p>
+
+        <p>
+            <strong>Role:</strong>
+            {{ user.get_role_display }}
+        </p>
+    </div>
+
+    <div>
+        <h2>Account status</h2>
+
+        <p>
+            <strong>Active:</strong>
+            {% if user.is_active %}Yes{% else %}No{% endif %}
+        </p>
+
+        <p>
+            <strong>Staff:</strong>
+            {% if user.is_staff %}Yes{% else %}No{% endif %}
+        </p>
+    </div>
+</section>
+
+
+</main>
+
+</body>
+</html>
