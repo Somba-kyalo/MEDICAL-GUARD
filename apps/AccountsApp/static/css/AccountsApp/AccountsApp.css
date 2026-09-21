@@ -1,0 +1,204 @@
+:root {
+--accounts-bg: #0b1220;
+--accounts-surface: #111827;
+--accounts-surface-alt: #172033;
+--accounts-border: #263247;
+
+
+--accounts-text: #f3f4f6;
+--accounts-muted: #aeb8c8;
+
+--accounts-primary: #2563eb;
+--accounts-primary-hover: #1d4ed8;
+
+--accounts-danger: #dc2626;
+
+--accounts-radius: 8px;
+--accounts-content-width: 760px;
+
+
+}
+
+.accounts-main {
+width: min(100% - 32px, var(--accounts-content-width));
+margin: 0 auto;
+padding: 64px 0;
+}
+
+.accounts-section {
+margin-bottom: 32px;
+}
+
+.accounts-section h1 {
+margin-top: 0;
+margin-bottom: 12px;
+color: var(--accounts-text);
+}
+
+.accounts-section > p {
+color: var(--accounts-muted);
+}
+
+.accounts-form {
+display: flex;
+flex-direction: column;
+gap: 20px;
+
+
+padding: 28px;
+background: var(--accounts-surface);
+border: 1px solid var(--accounts-border);
+border-radius: var(--accounts-radius);
+
+
+}
+
+.accounts-field {
+display: flex;
+flex-direction: column;
+gap: 8px;
+}
+
+.accounts-field label {
+color: var(--accounts-text);
+font-size: 0.95rem;
+font-weight: 600;
+}
+
+.accounts-field input {
+width: 100%;
+padding: 11px 12px;
+
+
+background: var(--accounts-bg);
+border: 1px solid var(--accounts-border);
+border-radius: var(--accounts-radius);
+
+color: var(--accounts-text);
+font: inherit;
+
+
+}
+
+.accounts-field input:focus {
+outline: none;
+border-color: var(--accounts-primary);
+}
+
+.accounts-form button {
+width: fit-content;
+padding: 10px 18px;
+
+
+background: var(--accounts-primary);
+border: 1px solid var(--accounts-primary);
+border-radius: var(--accounts-radius);
+
+color: #ffffff;
+font: inherit;
+font-weight: 600;
+cursor: pointer;
+
+
+}
+
+.accounts-form button:hover {
+background: var(--accounts-primary-hover);
+border-color: var(--accounts-primary-hover);
+}
+
+.accounts-message {
+margin: 0 0 20px;
+padding: 12px 14px;
+
+
+background: var(--accounts-surface);
+border: 1px solid var(--accounts-border);
+border-radius: var(--accounts-radius);
+
+color: var(--accounts-text);
+
+
+}
+
+.accounts-links {
+margin-top: 20px;
+}
+
+.accounts-links a {
+color: #93c5fd;
+}
+
+.accounts-links a:hover {
+color: #ffffff;
+}
+
+.accounts-profile-grid {
+display: grid;
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 20px;
+}
+
+.accounts-card {
+padding: 24px;
+
+
+background: var(--accounts-surface);
+border: 1px solid var(--accounts-border);
+border-radius: var(--accounts-radius);
+
+
+}
+
+.accounts-card h2 {
+margin-top: 0;
+color: var(--accounts-text);
+}
+
+.accounts-card p {
+margin-bottom: 12px;
+color: var(--accounts-muted);
+}
+
+.accounts-card strong {
+color: var(--accounts-text);
+}
+
+.accounts-action {
+display: inline-block;
+margin-top: 16px;
+padding: 10px 18px;
+
+
+background: var(--accounts-primary);
+border: 1px solid var(--accounts-primary);
+border-radius: var(--accounts-radius);
+
+color: #ffffff;
+font-weight: 600;
+
+
+}
+
+.accounts-action:hover {
+background: var(--accounts-primary-hover);
+border-color: var(--accounts-primary-hover);
+color: #ffffff;
+}
+
+@media (max-width: 700px) {
+.accounts-main {
+padding: 40px 0;
+}
+
+
+.accounts-form {
+    padding: 20px;
+}
+
+.accounts-profile-grid {
+    grid-template-columns: 1fr;
+}
+
+
+}
