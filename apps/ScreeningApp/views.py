@@ -169,7 +169,7 @@ def screening_form(request, screening_id):
         )
 
         return redirect(
-            "ScreeningApp:result",
+            "ScreeningApp:detail",
             screening_id=screening.id,
         )
 
@@ -314,7 +314,7 @@ def screening_complete(request, screening_id):
         )
 
     return redirect(
-        "ScreeningApp:result",
+        "ScreeningApp:detail",
         screening_id=screening.id,
     )
 
@@ -344,7 +344,7 @@ def screening_submit_for_review(request, screening_id):
         )
 
     return redirect(
-        "ScreeningApp:result",
+        "ScreeningApp:detail",
         screening_id=screening.id,
     )
 
@@ -370,7 +370,7 @@ def screening_review(request, screening_id):
         )
 
         return redirect(
-            "ScreeningApp:result",
+            "ScreeningApp:detail",
             screening_id=screening.id,
         )
 
@@ -415,7 +415,7 @@ def screening_review(request, screening_id):
             )
 
             return redirect(
-                "ScreeningApp:result",
+                "ScreeningApp:detail",
                 screening_id=screening.id,
             )
 
