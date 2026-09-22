@@ -1,0 +1,146 @@
+:root {
+    --mg-navy: #0b1f3a;
+    --mg-blue: #0d6efd;
+    --mg-white: #ffffff;
+    --mg-black: #111111;
+    --mg-border: #d9e2ec;
+    --mg-muted: #6c757d;
+    --mg-surface: #ffffff;
+    --mg-background: #f4f7fb;
+}
+
+[data-bs-theme="dark"] {
+    --mg-background: #08111f;
+    --mg-surface: #101d2d;
+    --mg-border: #26384d;
+    --mg-muted: #aab7c6;
+}
+
+html {
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    background: var(--mg-background);
+    color: var(--mg-black);
+}
+
+[data-bs-theme="dark"] body {
+    color: var(--mg-white);
+}
+
+.container {
+    max-width: 1100px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--mg-navy);
+    font-weight: 600;
+}
+
+[data-bs-theme="dark"] h1,
+[data-bs-theme="dark"] h2,
+[data-bs-theme="dark"] h3,
+[data-bs-theme="dark"] h4,
+[data-bs-theme="dark"] h5,
+[data-bs-theme="dark"] h6 {
+    color: var(--mg-white);
+}
+
+.card {
+    background: var(--mg-surface);
+    border: 1px solid var(--mg-border);
+    border-radius: 10px;
+}
+
+.form-control,
+.form-select {
+    border-color: var(--mg-border);
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--mg-blue);
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.15);
+}
+
+.table {
+    --bs-table-bg: var(--mg-surface);
+    --bs-table-color: inherit;
+}
+
+.table th {
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.border {
+    border-color: var(--mg-border) !important;
+}
+
+.text-secondary {
+    color: var(--mg-muted) !important;
+}
+
+.btn {
+    border-radius: 6px;
+}
+
+.btn-primary {
+    background-color: var(--mg-blue);
+}
+
+.btn-success {
+    background-color: #198754;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+}
+
+.badge {
+    font-weight: 500;
+}
+
+.alert {
+    border-radius: 8px;
+}
+
+.screening-header {
+    border-left: 4px solid var(--mg-blue);
+    padding-left: 1rem;
+}
+
+.screening-response {
+    background: var(--mg-background);
+    border: 1px solid var(--mg-border);
+    border-radius: 8px;
+}
+
+.screening-status {
+    display: inline-block;
+    padding: 0.4rem 0.7rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+}
+
+@media (max-width: 576px) {
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    h1 {
+        font-size: 1.7rem;
+    }
+
+    .card-body {
+        padding: 1rem;
+    }
+}
