@@ -1,0 +1,190 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMR Assessment | MEDIGUARD</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'AmrApp/AmrApp.css' %}">
+</head>
+<body>
+
+<div class="amr-page">
+    <div class="amr-container">
+
+        <header class="amr-header">
+            <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
+                <div>
+                    <span>MEDIGUARD</span>
+                    <h1>AMR Assessment</h1>
+                    <p>Clinical assessment and antimicrobial resistance review.</p>
+                </div>
+
+                <a href="#" class="btn btn-outline-light" id="back-dashboard">
+                    Dashboard
+                </a>
+            </div>
+        </header>
+
+        <main>
+
+            <div id="assessment-alert"></div>
+
+            <section class="amr-card mb-4">
+
+                <h2>Patient & Screening</h2>
+
+                <div class="row g-3 mt-1">
+
+                    <div class="col-md-6">
+                        <label for="patient-name" class="form-label">Patient</label>
+                        <input type="text" class="form-control" id="patient-name" readonly>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="screening-type" class="form-label">Screening Type</label>
+                        <input type="text" class="form-control" id="screening-type" readonly>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <section class="amr-card mb-4">
+
+                <h2>AMR Information</h2>
+
+                <form id="amr-assessment-form">
+
+                    <div class="mb-3">
+                        <label for="exposure-history" class="form-label">
+                            Antimicrobial Exposure History
+                        </label>
+                        <textarea class="form-control" id="exposure-history" rows="4"></textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="infection-information" class="form-label">
+                            Infection Information
+                        </label>
+                        <textarea class="form-control" id="infection-information" rows="4"></textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="risk-level" class="form-label">Risk Level</label>
+                        <select class="form-select" id="risk-level">
+                            <option value="">Select risk level</option>
+                            <option value="LOW">Low</option>
+                            <option value="MODERATE">Moderate</option>
+                            <option value="HIGH">High</option>
+                            <option value="URGENT">Urgent</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="clinical-notes" class="form-label">
+                            Clinical Notes
+                        </label>
+                        <textarea class="form-control" id="clinical-notes" rows="5"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-success" id="save-assessment">
+                        Save Assessment
+                    </button>
+
+                </form>
+
+            </section>
+
+            <section class="amr-card mb-4">
+
+                <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
+                    <div>
+                        <h2>Resistance Tests</h2>
+                        <p>Record organism and antibiotic resistance findings.</p>
+                    </div>
+                </div>
+
+                <form id="resistance-test-form">
+
+                    <div class="row g-3">
+
+                        <div class="col-md-4">
+                            <label for="organism" class="form-label">Organism</label>
+                            <select class="form-select" id="organism">
+                                <option value="">Select organism</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="antibiotic" class="form-label">Antibiotic</label>
+                            <select class="form-select" id="antibiotic">
+                                <option value="">Select antibiotic</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="result" class="form-label">Result</label>
+                            <select class="form-select" id="result">
+                                <option value="">Select result</option>
+                                <option value="SUSCEPTIBLE">Susceptible</option>
+                                <option value="INTERMEDIATE">Intermediate</option>
+                                <option value="RESISTANT">Resistant</option>
+                                <option value="UNKNOWN">Unknown</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div class="mt-3 mb-3">
+                        <label for="test-notes" class="form-label">Test Notes</label>
+                        <textarea class="form-control" id="test-notes" rows="3"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" id="add-resistance-test">
+                        Add Resistance Test
+                    </button>
+
+                </form>
+
+            </section>
+
+            <section class="amr-card">
+
+                <h2>Recorded Resistance Tests</h2>
+
+                <div class="amr-table-wrapper">
+                    <table class="amr-table">
+                        <thead>
+                            <tr>
+                                <th>Organism</th>
+                                <th>Antibiotic</th>
+                                <th>Result</th>
+                                <th>Notes</th>
+                                <th>Tested At</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="resistance-tests">
+                            <tr>
+                                <td colspan="5" class="text-center">
+                                    No resistance tests recorded.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+</div>
+
+<script src="{% static 'AmrApp/AmrApp.js' %}"></script>
+
+</body>
+</html>
