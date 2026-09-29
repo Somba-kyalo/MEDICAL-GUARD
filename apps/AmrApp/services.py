@@ -1,13 +1,9 @@
 from django.core.exceptions import ValidationError
 from django.db import transaction
-
 from .models import AMRRecord, ResistanceTest
-from .rules import validate_amr_text, validate_resistance_result, validate_risk_level
+from .rules import validate_resistance_result, validate_risk_level
 
-
-class AMRServiceError(Exception):
-    pass
-
+from apps.ScreeningApp.models import Screening
 
 @transaction.atomic
 def create_amr_record(
@@ -22,6 +18,14 @@ def create_amr_record(
 ):
     if screening.patient_id != patient.id:
         raise ValidationError("The screening does not belong to the selected patient.")
+
+    if screening.screening_type != screening.ScreeningType.AMR:
+        raise ValidationError("An AMR record requires an AMR screening.")
+
+    if ai_analysis is not None and ai_analysis.screening_id != screening.id:
+        raise ValidationError(
+            "The AI analysis does not belong to the selected screening."
+        )
 
     if risk_level:
         risk_level = validate_risk_level(risk_level)
@@ -104,6 +108,12 @@ def add_resistance_test(
 
     if not antibiotic:
         raise ValidationError("An antibiotic is required.")
+
+    if not organism.is_active:
+        raise ValidationError("The selected organism is inactive.")
+
+    if not antibiotic.is_active:
+        raise ValidationError("The selected antibiotic is inactive.")
 
     result = validate_resistance_result(result)
 
