@@ -9,4 +9,5 @@ urlpatterns = [
     path("screening/", include("apps.ScreeningApp.urls")),
     path("ai/", include("apps.AIApp.urls")),
     path("amr/", include("apps.AmrApp.urls")),
+    path("referrals/", include("apps.ReferralsApp.urls")),
 ]
