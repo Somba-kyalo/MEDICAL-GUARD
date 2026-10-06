@@ -1,0 +1,344 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Follow-up | Medical Guard</title>
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="{% static 'FollowupsApp/FollowupsApp.css' %}"
+    >
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-secondary">
+    <div class="container-fluid">
+
+        <a class="navbar-brand fw-semibold" href="/">
+            MEDICAL-GUARD
+        </a>
+
+        <div class="d-flex align-items-center gap-2">
+            <a
+                href="{% url 'FollowupsApp:list' %}"
+                class="btn btn-outline-light btn-sm"
+            >
+                Follow-ups
+            </a>
+        </div>
+
+    </div>
+</nav>
+
+<main class="container py-4">
+
+    <div class="mb-4">
+        <h1 class="h3 mb-1">Create Follow-up</h1>
+
+        <p class="text-secondary mb-0">
+            Schedule a patient follow-up for continued care and monitoring.
+        </p>
+    </div>
+
+    <div
+        id="followUpMessage"
+        class="alert d-none"
+        role="alert"
+    ></div>
+
+    <div class="card followup-panel">
+
+        <div class="card-header bg-transparent border-secondary">
+            <h2 class="h5 mb-1">Follow-up Information</h2>
+
+            <p class="text-secondary small mb-0">
+                Provide the required information below.
+            </p>
+        </div>
+
+        <div class="card-body">
+
+            <form id="createFollowUpForm">
+
+                <div class="row g-3">
+
+                    <div class="col-md-6">
+
+                        <label
+                            for="patient"
+                            class="form-label"
+                        >
+                            Patient
+                        </label>
+
+                        <select
+                            id="patient"
+                            name="patient_id"
+                            class="form-select"
+                            required
+                        >
+                            <option value="">
+                                Select patient
+                            </option>
+
+                            {% for patient in patients %}
+                            <option value="{{ patient.id }}">
+                                {{ patient.user.username }}
+                            </option>
+                            {% endfor %}
+
+                        </select>
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <label
+                            for="referral"
+                            class="form-label"
+                        >
+                            Referral
+                        </label>
+
+                        <select
+                            id="referral"
+                            name="referral_id"
+                            class="form-select"
+                        >
+                            <option value="">
+                                No referral
+                            </option>
+
+                            {% for referral in referrals %}
+                            <option
+                                value="{{ referral.id }}"
+                                data-patient="{{ referral.patient.id }}"
+                            >
+                                #{{ referral.id }}
+                                -
+                                {{ referral.patient.user.username }}
+                                -
+                                {{ referral.get_status_display }}
+                            </option>
+                            {% endfor %}
+
+                        </select>
+
+                        <div class="form-text">
+                            Optional. Select the referral connected to this follow-up.
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <label
+                            for="follow_up_type"
+                            class="form-label"
+                        >
+                            Follow-up Type
+                        </label>
+
+                        <select
+                            id="follow_up_type"
+                            name="follow_up_type"
+                            class="form-select"
+                            required
+                        >
+                            <option value="GENERAL_REVIEW">
+                                General Review
+                            </option>
+
+                            <option value="REFERRAL_REVIEW">
+                                Referral Review
+                            </option>
+
+                            <option value="TREATMENT_REVIEW">
+                                Treatment Review
+                            </option>
+
+                            <option value="SCREENING_REVIEW">
+                                Screening Review
+                            </option>
+
+                            <option value="AMR_REVIEW">
+                                AMR Review
+                            </option>
+                        </select>
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <label
+                            for="status"
+                            class="form-label"
+                        >
+                            Status
+                        </label>
+
+                        <select
+                            id="status"
+                            name="status"
+                            class="form-select"
+                        >
+                            <option value="PENDING">
+                                Pending
+                            </option>
+
+                            <option value="COMPLETED">
+                                Completed
+                            </option>
+
+                            <option value="MISSED">
+                                Missed
+                            </option>
+
+                            <option value="RESCHEDULED">
+                                Rescheduled
+                            </option>
+                        </select>
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <label
+                            for="scheduled_at"
+                            class="form-label"
+                        >
+                            Scheduled Date & Time
+                        </label>
+
+                        <input
+                            type="datetime-local"
+                            id="scheduled_at"
+                            name="scheduled_at"
+                            class="form-control"
+                            required
+                        >
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <label
+                            for="completed_at"
+                            class="form-label"
+                        >
+                            Completed Date & Time
+                        </label>
+
+                        <input
+                            type="datetime-local"
+                            id="completed_at"
+                            name="completed_at"
+                            class="form-control"
+                        >
+
+                        <div class="form-text">
+                            Required when the status is completed.
+                        </div>
+
+                    </div>
+
+                    <div class="col-12">
+
+                        <label
+                            for="reason"
+                            class="form-label"
+                        >
+                            Follow-up Reason
+                        </label>
+
+                        <textarea
+                            id="reason"
+                            name="reason"
+                            class="form-control"
+                            rows="4"
+                            placeholder="Enter the reason for this follow-up..."
+                            required
+                        ></textarea>
+
+                    </div>
+
+                    <div class="col-12">
+
+                        <label
+                            for="outcome"
+                            class="form-label"
+                        >
+                            Outcome
+                        </label>
+
+                        <textarea
+                            id="outcome"
+                            name="outcome"
+                            class="form-control"
+                            rows="3"
+                            placeholder="Enter the outcome if already completed..."
+                        ></textarea>
+
+                    </div>
+
+                    <div class="col-12">
+
+                        <label
+                            for="notes"
+                            class="form-label"
+                        >
+                            Notes
+                        </label>
+
+                        <textarea
+                            id="notes"
+                            name="notes"
+                            class="form-control"
+                            rows="3"
+                            placeholder="Additional follow-up notes..."
+                        ></textarea>
+
+                    </div>
+
+                </div>
+
+                <div class="d-flex justify-content-end gap-2 mt-4">
+
+                    <a
+                        href="{% url 'FollowupsApp:list' %}"
+                        class="btn btn-outline-secondary"
+                    >
+                        Cancel
+                    </a>
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary"
+                        id="createFollowUpButton"
+                    >
+                        Create Follow-up
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</main>
+
+<script src="{% static 'FollowupsApp/FollowupsApp.js' %}"></script>
+
+</body>
+</html>
