@@ -1,0 +1,245 @@
+:root {
+    --followup-bg: #0b1120;
+    --followup-surface: #111827;
+    --followup-surface-soft: #172033;
+    --followup-border: #263449;
+    --followup-text: #f8fafc;
+    --followup-muted: #94a3b8;
+    --followup-primary: #2563eb;
+    --followup-primary-hover: #1d4ed8;
+    --followup-success: #198754;
+    --followup-warning: #d97706;
+    --followup-danger: #dc3545;
+}
+
+
+body {
+    background-color: var(--followup-bg);
+    color: var(--followup-text);
+    min-height: 100vh;
+}
+
+
+.navbar {
+    background-color: #0f172a !important;
+}
+
+
+.navbar-brand {
+    letter-spacing: 0.02em;
+}
+
+
+.followup-panel {
+    background-color: var(--followup-surface);
+    border: 1px solid var(--followup-border);
+    color: var(--followup-text);
+}
+
+
+.followup-stat-card {
+    background-color: var(--followup-surface);
+    border: 1px solid var(--followup-border);
+    color: var(--followup-text);
+    transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+
+.followup-stat-card:hover {
+    border-color: #3b82f6;
+    transform: translateY(-2px);
+}
+
+
+.card-header {
+    color: var(--followup-text);
+}
+
+
+.form-label {
+    color: var(--followup-text);
+    font-weight: 500;
+}
+
+
+.form-control,
+.form-select {
+    background-color: #0f172a;
+    border-color: var(--followup-border);
+    color: var(--followup-text);
+}
+
+
+.form-control:focus,
+.form-select:focus {
+    background-color: #0f172a;
+    border-color: var(--followup-primary);
+    color: var(--followup-text);
+    box-shadow: 0 0 0 0.2rem rgba(37, 99, 235, 0.2);
+}
+
+
+.form-control::placeholder {
+    color: #64748b;
+}
+
+
+.form-select option {
+    background-color: #0f172a;
+    color: var(--followup-text);
+}
+
+
+.form-text {
+    color: var(--followup-muted);
+}
+
+
+.table {
+    margin-bottom: 0;
+}
+
+
+.table thead th {
+    color: #cbd5e1;
+    font-size: 0.82rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+}
+
+
+.table tbody td {
+    border-color: var(--followup-border);
+}
+
+
+.table-hover tbody tr:hover {
+    background-color: #172033;
+}
+
+
+.followup-status-badge {
+    border: 1px solid transparent;
+    font-weight: 500;
+    padding: 0.45rem 0.65rem;
+}
+
+
+.status-pending {
+    background-color: rgba(217, 119, 6, 0.15);
+    border-color: rgba(217, 119, 6, 0.4);
+    color: #fbbf24;
+}
+
+
+.status-completed {
+    background-color: rgba(25, 135, 84, 0.15);
+    border-color: rgba(25, 135, 84, 0.4);
+    color: #4ade80;
+}
+
+
+.status-missed {
+    background-color: rgba(220, 53, 69, 0.15);
+    border-color: rgba(220, 53, 69, 0.4);
+    color: #f87171;
+}
+
+
+.status-rescheduled {
+    background-color: rgba(37, 99, 235, 0.15);
+    border-color: rgba(37, 99, 235, 0.4);
+    color: #60a5fa;
+}
+
+
+.status-cancelled {
+    background-color: rgba(100, 116, 139, 0.15);
+    border-color: rgba(100, 116, 139, 0.4);
+    color: #94a3b8;
+}
+
+
+.status-accepted,
+.status-sent,
+.status-in_progress {
+    background-color: rgba(37, 99, 235, 0.15);
+    border-color: rgba(37, 99, 235, 0.4);
+    color: #60a5fa;
+}
+
+
+.btn-primary {
+    background-color: var(--followup-primary);
+    border-color: var(--followup-primary);
+}
+
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: var(--followup-primary-hover);
+    border-color: var(--followup-primary-hover);
+}
+
+
+.followup-detail-item {
+    background-color: var(--followup-surface-soft);
+    border: 1px solid var(--followup-border);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    min-height: 100%;
+}
+
+
+#followUpMessage {
+    border-radius: 0.5rem;
+}
+
+
+#followUpMessage.alert-success {
+    background-color: rgba(25, 135, 84, 0.15);
+    border-color: rgba(25, 135, 84, 0.4);
+    color: #86efac;
+}
+
+
+#followUpMessage.alert-danger {
+    background-color: rgba(220, 53, 69, 0.15);
+    border-color: rgba(220, 53, 69, 0.4);
+    color: #fca5a5;
+}
+
+
+#followUpMessage.alert-warning {
+    background-color: rgba(217, 119, 6, 0.15);
+    border-color: rgba(217, 119, 6, 0.4);
+    color: #fcd34d;
+}
+
+
+@media (max-width: 767.98px) {
+
+    main.container-fluid,
+    main.container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+
+    .table {
+        min-width: 850px;
+    }
+
+
+    .followup-detail-item {
+        padding: 0.85rem;
+    }
+
+
+    .navbar .btn {
+        white-space: nowrap;
+    }
+
+}
