@@ -10,4 +10,5 @@ urlpatterns = [
     path("ai/", include("apps.AIApp.urls")),
     path("amr/", include("apps.AmrApp.urls")),
     path("referrals/", include("apps.ReferralsApp.urls")),
+    path("facilities/", include("apps.FacilitiesApp.urls")),
 ]
