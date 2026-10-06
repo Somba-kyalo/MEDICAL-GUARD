@@ -1,0 +1,291 @@
+:root {
+    --navy: #0b1f33;
+    --navy-light: #122b44;
+    --blue: #0d6efd;
+    --blue-dark: #0a58ca;
+    --white: #ffffff;
+    --black: #0f1720;
+    --gray: #6c757d;
+    --gray-light: #e9ecef;
+    --border: #d8dee5;
+    --danger: #dc3545;
+    --success: #198754;
+}
+
+body {
+    min-height: 100vh;
+    background: #f5f7fa;
+    color: var(--black);
+}
+
+.navbar {
+    background: var(--navy);
+}
+
+.navbar-brand {
+    letter-spacing: 0.4px;
+}
+
+.nav-link {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--white);
+}
+
+.page-title {
+    color: var(--navy);
+    font-weight: 700;
+}
+
+.facility-card,
+.facility-summary-card {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(15, 23, 32, 0.06);
+}
+
+.facility-summary-card h2 {
+    color: var(--navy);
+    font-weight: 700;
+}
+
+.facility-card h4,
+.facility-card h5 {
+    color: var(--navy);
+}
+
+.btn-primary {
+    background: var(--blue);
+    border-color: var(--blue);
+}
+
+.btn-primary:hover {
+    background: var(--blue-dark);
+    border-color: var(--blue-dark);
+}
+
+.btn-outline-primary {
+    color: var(--blue);
+    border-color: var(--blue);
+}
+
+.btn-outline-primary:hover {
+    background: var(--blue);
+    border-color: var(--blue);
+}
+
+.facility-item {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 18px;
+    background: var(--white);
+}
+
+.facility-item + .facility-item {
+    margin-top: 14px;
+}
+
+.facility-name {
+    color: var(--navy);
+    font-weight: 700;
+}
+
+.facility-meta {
+    color: var(--gray);
+    font-size: 0.9rem;
+}
+
+.facility-status {
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.facility-services {
+    white-space: pre-line;
+}
+
+.facility-detail-section {
+    border-top: 1px solid var(--border);
+    padding-top: 20px;
+    margin-top: 20px;
+}
+
+.detail-label {
+    color: var(--gray);
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.detail-value {
+    color: var(--black);
+    margin-bottom: 16px;
+}
+
+.resource-item {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+    background: var(--white);
+}
+
+.resource-item + .resource-item {
+    margin-top: 12px;
+}
+
+.resource-name {
+    color: var(--navy);
+    font-weight: 600;
+}
+
+.resource-quantity {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--navy);
+}
+
+.resource-available {
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.facility-map {
+    min-height: 400px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: #eef2f6;
+    padding: 20px;
+}
+
+.map-placeholder {
+    min-height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.map-location {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--white);
+    padding: 14px;
+}
+
+.map-location + .map-location {
+    margin-top: 10px;
+}
+
+.form-control,
+.form-select {
+    border-color: var(--border);
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 0.15rem rgba(13, 110, 253, 0.15);
+}
+
+.alert {
+    border-radius: 8px;
+}
+
+.empty-state {
+    padding: 40px 20px;
+    text-align: center;
+    border: 1px dashed var(--border);
+    border-radius: 8px;
+    background: var(--white);
+}
+
+.loading-state {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.resource-table th {
+    color: var(--navy);
+    font-size: 0.9rem;
+}
+
+.resource-table td {
+    vertical-align: middle;
+}
+
+@media (max-width: 767.98px) {
+    .facility-card,
+    .facility-summary-card {
+        border-radius: 6px;
+    }
+
+    .facility-item {
+        padding: 14px;
+    }
+
+    .facility-map {
+        min-height: 300px;
+    }
+
+    .map-placeholder {
+        min-height: 250px;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background: #0f1720;
+        color: #e9ecef;
+    }
+
+    .page-title,
+    .facility-card h4,
+    .facility-card h5,
+    .facility-name,
+    .resource-name,
+    .facility-summary-card h2 {
+        color: var(--white);
+    }
+
+    .facility-card,
+    .facility-summary-card,
+    .facility-item,
+    .resource-item,
+    .empty-state,
+    .map-location {
+        background: #162536;
+        border-color: #2d4054;
+        color: #e9ecef;
+    }
+
+    .detail-value {
+        color: #e9ecef;
+    }
+
+    .facility-map {
+        background: #142231;
+        border-color: #2d4054;
+    }
+
+    .form-control,
+    .form-select {
+        background: #162536;
+        border-color: #2d4054;
+        color: #ffffff;
+    }
+
+    .form-control::placeholder {
+        color: #9aa7b5;
+    }
+
+    .resource-table {
+        color: #e9ecef;
+    }
+
+    .resource-table th {
+        color: #ffffff;
+    }
+}
