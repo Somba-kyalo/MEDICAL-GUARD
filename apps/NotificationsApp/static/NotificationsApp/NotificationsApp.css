@@ -1,0 +1,242 @@
+:root {
+    --notification-bg: #f4f6f8;
+    --notification-surface: #ffffff;
+    --notification-text: #172033;
+    --notification-muted: #6b7280;
+    --notification-border: #d9dee7;
+    --notification-primary: #123b63;
+    --notification-primary-dark: #0d2d4b;
+    --notification-danger: #b42318;
+    --notification-success: #16794c;
+    --notification-warning: #9a6700;
+}
+
+body {
+    background: var(--notification-bg);
+    color: var(--notification-text);
+    min-height: 100vh;
+}
+
+.notification-header {
+    gap: 20px;
+}
+
+.page-title {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.page-subtitle {
+    margin: 6px 0 0;
+    color: var(--notification-muted);
+}
+
+.header-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.stat-card {
+    background: var(--notification-surface);
+    border: 1px solid var(--notification-border);
+    border-radius: 10px;
+    padding: 18px;
+    height: 100%;
+}
+
+.stat-label {
+    display: block;
+    color: var(--notification-muted);
+    font-size: 0.85rem;
+    margin-bottom: 5px;
+}
+
+.stat-card strong {
+    font-size: 1.7rem;
+}
+
+.notification-panel {
+    background: var(--notification-surface);
+    border: 1px solid var(--notification-border);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.panel-header {
+    padding: 18px 20px;
+    border-bottom: 1px solid var(--notification-border);
+}
+
+.panel-header h2 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.notification-item {
+    padding: 18px 20px;
+    border-bottom: 1px solid var(--notification-border);
+    transition: background-color 0.15s ease;
+}
+
+.notification-item:last-child {
+    border-bottom: 0;
+}
+
+.notification-item:hover {
+    background: #f8fafc;
+}
+
+.notification-item.unread {
+    border-left: 4px solid var(--notification-primary);
+}
+
+.notification-content {
+    min-width: 0;
+}
+
+.notification-title {
+    margin: 0 0 5px;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.notification-message {
+    margin: 0 0 8px;
+    color: var(--notification-muted);
+    white-space: pre-wrap;
+}
+
+.notification-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+    color: var(--notification-muted);
+    font-size: 0.8rem;
+}
+
+.notification-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+}
+
+.notification-badge {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 20px;
+    padding: 4px 9px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.badge-unread {
+    background: #e8eef7;
+    color: var(--notification-primary);
+}
+
+.badge-read {
+    background: #eef1f4;
+    color: var(--notification-muted);
+}
+
+.priority-low {
+    background: #eef1f4;
+    color: #4b5563;
+}
+
+.priority-normal {
+    background: #e8eef7;
+    color: var(--notification-primary);
+}
+
+.priority-high {
+    background: #fff4d6;
+    color: var(--notification-warning);
+}
+
+.priority-critical {
+    background: #fde8e7;
+    color: var(--notification-danger);
+}
+
+.empty-state {
+    text-align: center;
+    padding: 55px 20px;
+    color: var(--notification-muted);
+}
+
+.empty-state h3 {
+    color: var(--notification-text);
+    margin-bottom: 8px;
+}
+
+.alert-message {
+    margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+    .notification-header {
+        align-items: flex-start !important;
+        flex-direction: column;
+    }
+
+    .header-actions {
+        width: 100%;
+    }
+
+    .header-actions .btn {
+        flex: 1;
+    }
+
+    .notification-item {
+        padding: 16px;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --notification-bg: #0f1720;
+        --notification-surface: #17212b;
+        --notification-text: #f3f4f6;
+        --notification-muted: #a8b0bb;
+        --notification-border: #2c3743;
+        --notification-primary: #7aa7d9;
+        --notification-primary-dark: #5f8fbe;
+    }
+
+    body {
+        background: var(--notification-bg);
+        color: var(--notification-text);
+    }
+
+    .notification-item:hover {
+        background: #1d2935;
+    }
+
+    .badge-unread,
+    .priority-normal {
+        background: #20344a;
+        color: #a9c9eb;
+    }
+
+    .badge-read,
+    .priority-low {
+        background: #26303a;
+        color: #b5bec9;
+    }
+
+    .priority-high {
+        background: #443a20;
+        color: #f1c75b;
+    }
+
+    .priority-critical {
+        background: #472629;
+        color: #f08c8c;
+    }
+}
