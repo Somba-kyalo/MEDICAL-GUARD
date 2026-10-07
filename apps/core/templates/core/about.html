@@ -1,45 +1,394 @@
+{% extends "base.html" %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About | MEDIGUARD</title>
+{% block title %}
+About MEDIGUARD
+{% endblock %}
 
-    <link rel="stylesheet" href="{% static 'core/core.css' %}">
-</head>
-<body>
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'core/core.css' %}">
+{% endblock %}
 
-    <header>
-        <nav>
-            <a href="{% url 'core:home' %}">MEDIGUARD</a>
+{% block content %}
 
-            <div>
-                <a href="{% url 'core:about' %}">About</a>
-                <a href="{% url 'core:dashboard' %}">Dashboard</a>
+<div class="container py-5">
+
+    <!-- Page Header -->
+    <section class="text-center mb-5">
+
+        <span class="badge bg-primary mb-3">
+            ABOUT MEDIGUARD
+        </span>
+
+        <h1 class="display-5 fw-bold">
+            Medical Intelligence for Connected Healthcare
+        </h1>
+
+        <p class="lead text-secondary mx-auto mt-3" style="max-width: 850px;">
+            MEDIGUARD is a digital healthcare platform designed to support
+            structured screening, clinical decision support, antimicrobial
+            resistance monitoring, referrals, facility coordination,
+            follow-up care, analytics, notifications, and healthcare auditing.
+        </p>
+
+    </section>
+
+
+    <!-- What is MEDIGUARD -->
+    <section class="mb-5">
+
+        <div class="card shadow-sm border-0">
+
+            <div class="card-body p-4 p-lg-5">
+
+                <h2 class="fw-bold mb-3">
+                    What is MEDIGUARD?
+                </h2>
+
+                <p class="text-secondary">
+                    MEDIGUARD stands for a Medical Intelligence, Screening,
+                    Referral and Follow-up Platform. It brings important
+                    healthcare workflows into one structured digital
+                    environment.
+                </p>
+
+                <p class="text-secondary mb-0">
+                    The platform helps healthcare workers organize patient
+                    information, conduct structured screening, review clinical
+                    information, monitor antimicrobial resistance, coordinate
+                    referrals, manage follow-up activities, and use analytics
+                    to understand healthcare operations.
+                </p>
+
             </div>
-        </nav>
-    </header>
 
-    <main>
-        <section>
-            <h1>About MEDIGUARD</h1>
+        </div>
 
-            <p>
-                MEDIGUARD is designed to support healthcare workflows through
-                structured screening, clinical decision support, antimicrobial
-                resistance monitoring, referrals, facility coordination,
-                follow-up care, analytics, notifications, and auditing.
+    </section>
+
+
+    <!-- Core Workflow -->
+    <section class="mb-5">
+
+        <div class="text-center mb-4">
+
+            <h2 class="fw-bold">
+                MEDIGUARD Workflow
+            </h2>
+
+            <p class="text-secondary">
+                A connected workflow from early detection to continuous
+                learning.
             </p>
 
-            <p>
-                The platform is designed around the workflow:
-                Detect → Assess → Protect → Connect → Follow Up → Learn.
-            </p>
-        </section>
-    </main>
+        </div>
 
-    <script src="{% static 'core/core.js' %}"></script>
-</body>
-</html>
+        <div class="row g-4">
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 shadow-sm border-0">
+                    <div class="card-body">
+                        <h3 class="h5 fw-bold">
+                            01. Detect
+                        </h3>
+                        <p class="text-secondary mb-0">
+                            Capture structured patient information and identify
+                            important health concerns through screening.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 shadow-sm border-0">
+                    <div class="card-body">
+                        <h3 class="h5 fw-bold">
+                            02. Assess
+                        </h3>
+                        <p class="text-secondary mb-0">
+                            Organize screening findings and support healthcare
+                            workers in reviewing patient risk information.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 shadow-sm border-0">
+                    <div class="card-body">
+                        <h3 class="h5 fw-bold">
+                            03. Protect
+                        </h3>
+                        <p class="text-secondary mb-0">
+                            Support antimicrobial resistance monitoring and
+                            responsible clinical follow-up.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 shadow-sm border-0">
+                    <div class="card-body">
+                        <h3 class="h5 fw-bold">
+                            04. Connect
+                        </h3>
+                        <p class="text-secondary mb-0">
+                            Coordinate referrals between patients, healthcare
+                            workers, and healthcare facilities.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 shadow-sm border-0">
+                    <div class="card-body">
+                        <h3 class="h5 fw-bold">
+                            05. Follow Up
+                        </h3>
+                        <p class="text-secondary mb-0">
+                            Track scheduled follow-ups and maintain continuity
+                            of care after screening or referral.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 shadow-sm border-0">
+                    <div class="card-body">
+                        <h3 class="h5 fw-bold">
+                            06. Learn
+                        </h3>
+                        <p class="text-secondary mb-0">
+                            Use analytics, notifications, and audit information
+                            to improve healthcare workflows and accountability.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Core Capabilities -->
+    <section class="mb-5">
+
+        <div class="text-center mb-4">
+
+            <h2 class="fw-bold">
+                Core Capabilities
+            </h2>
+
+            <p class="text-secondary">
+                One platform connecting multiple healthcare workflows.
+            </p>
+
+        </div>
+
+        <div class="row g-4">
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="h5 fw-bold">
+                            Patient Management
+                        </h3>
+                        <p class="text-secondary mb-0">
+                            Maintain structured patient profiles and
+                            longitudinal healthcare information.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="h5 fw-bold">
+                            Health Screening
+                        </h3>
+                        <p class="text-secondary mb-0">
+                            Conduct structured screening and maintain
+                            screening responses and assessments.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="h5 fw-bold">
+                            Clinical Support
+                        </h3>
+                        <p class="text-secondary mb-0">
+                            Provide healthcare workers with structured
+                            information to support clinical review.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="h5 fw-bold">
+                            AMR Monitoring
+                        </h3>
+                        <p class="text-secondary mb-0">
+                            Record antimicrobial resistance information,
+                            organisms, antibiotics, and resistance tests.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="h5 fw-bold">
+                            Referral Coordination
+                        </h3>
+                        <p class="text-secondary mb-0">
+                            Create, track, and manage referrals between
+                            healthcare facilities.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="h5 fw-bold">
+                            Follow-up Care
+                        </h3>
+                        <p class="text-secondary mb-0">
+                            Schedule and track follow-up activities to support
+                            continuity of care.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Platform Support -->
+    <section class="mb-5">
+
+        <div class="row g-4">
+
+            <div class="col-lg-6">
+
+                <div class="card h-100 shadow-sm border-0">
+
+                    <div class="card-body p-4">
+
+                        <h2 class="h4 fw-bold mb-3">
+                            Data & Operational Intelligence
+                        </h2>
+
+                        <p class="text-secondary">
+                            MEDIGUARD provides analytics, notifications,
+                            facility information, and audit trails to help
+                            healthcare teams understand activities and
+                            maintain operational accountability.
+                        </p>
+
+                        <ul class="text-secondary mb-0">
+
+                            <li class="mb-2">
+                                Healthcare analytics
+                            </li>
+
+                            <li class="mb-2">
+                                Facility coordination
+                            </li>
+
+                            <li class="mb-2">
+                                Notifications and follow-up reminders
+                            </li>
+
+                            <li>
+                                Auditable healthcare activities
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-6">
+
+                <div class="card h-100 shadow-sm border-0">
+
+                    <div class="card-body p-4">
+
+                        <h2 class="h4 fw-bold mb-3">
+                            Responsible AI
+                        </h2>
+
+                        <p class="text-secondary">
+                            MEDIGUARD is designed so that artificial
+                            intelligence supports qualified healthcare
+                            workers rather than replacing clinical judgment.
+                        </p>
+
+                        <p class="text-secondary mb-0">
+                            AI-assisted outputs are intended to support
+                            assessment and review. Clinical decisions,
+                            diagnosis, treatment, and prescriptions remain
+                            the responsibility of qualified healthcare
+                            professionals.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Closing Statement -->
+    <section class="text-center py-4">
+
+        <h2 class="fw-bold">
+            Detect. Assess. Protect. Connect. Follow Up. Learn.
+        </h2>
+
+        <p class="text-secondary mt-3 mx-auto" style="max-width: 750px;">
+            MEDIGUARD brings these workflows together to create a more
+            structured, connected, and accountable digital healthcare
+            environment.
+        </p>
+
+        <a
+            href="{% url 'core:dashboard' %}"
+            class="btn btn-primary btn-lg mt-3"
+        >
+            Explore MEDIGUARD
+        </a>
+
+    </section>
+
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'core/core.js' %}"></script>
+{% endblock %}

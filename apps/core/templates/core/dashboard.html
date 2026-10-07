@@ -1,59 +1,124 @@
+{% extends "base.html" %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard | MEDIGUARD</title>
+{% block title %}
+Dashboard | MEDIGUARD
+{% endblock %}
 
-    <link rel="stylesheet" href="{% static 'core/core.css' %}">
-</head>
-<body>
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'core/core.css' %}">
+{% endblock %}
 
-    <header>
-        <nav>
-            <a href="{% url 'core:home' %}">MEDIGUARD</a>
+{% block sidebar %}
+    {% include "sidebar.html" %}
+{% endblock %}
 
-            <div>
-                <a href="{% url 'core:about' %}">About</a>
-                <a href="{% url 'core:dashboard' %}">Dashboard</a>
+{% block content %}
+
+<div class="container-fluid py-4">
+
+    <div class="mb-4">
+        <h1 class="fw-bold">
+            MEDIGUARD Dashboard
+        </h1>
+
+        <p class="text-secondary mb-0">
+            Central workspace for the MEDIGUARD healthcare platform.
+        </p>
+    </div>
+
+    <div class="row g-4">
+
+        <div class="col-md-6 col-xl-3">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h2 class="h5 fw-bold">
+                        Patients
+                    </h2>
+
+                    <p class="text-secondary">
+                        Manage patient records and longitudinal information.
+                    </p>
+
+                    <a
+                        href="{% url 'PatientsApp:list' %}"
+                        class="btn btn-primary"
+                    >
+                        View Patients
+                    </a>
+                </div>
             </div>
-        </nav>
-    </header>
+        </div>
 
-    <main>
-        <section>
-            <h1>MEDIGUARD Dashboard</h1>
+        <div class="col-md-6 col-xl-3">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h2 class="h5 fw-bold">
+                        Screening
+                    </h2>
 
-            <p>
-                Central workspace for the MEDIGUARD healthcare platform.
-            </p>
-        </section>
+                    <p class="text-secondary">
+                        Collect and review structured screening information.
+                    </p>
 
-        <section>
-            <div>
-                <h2>Patients</h2>
-                <p>Manage patient records and longitudinal information.</p>
+                    <a
+                        href="{% url 'ScreeningApp:list' %}"
+                        class="btn btn-primary"
+                    >
+                        Open Screening
+                    </a>
+                </div>
             </div>
+        </div>
 
-            <div>
-                <h2>Screening</h2>
-                <p>Collect and review structured screening information.</p>
+        <div class="col-md-6 col-xl-3">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h2 class="h5 fw-bold">
+                        Referrals
+                    </h2>
+
+                    <p class="text-secondary">
+                        Coordinate referrals and track their progress.
+                    </p>
+
+                    <a
+                        href="{% url 'ReferralsApp:list' %}"
+                        class="btn btn-primary"
+                    >
+                        View Referrals
+                    </a>
+                </div>
             </div>
+        </div>
 
-            <div>
-                <h2>Referrals</h2>
-                <p>Coordinate referrals and track their progress.</p>
+        <div class="col-md-6 col-xl-3">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h2 class="h5 fw-bold">
+                        Follow-up
+                    </h2>
+
+                    <p class="text-secondary">
+                        Monitor post-screening and post-referral care.
+                    </p>
+
+                    <a
+                        href="{% url 'FollowupsApp:list' %}"
+                        class="btn btn-primary"
+                    >
+                        View Follow-ups
+                    </a>
+                </div>
             </div>
+        </div>
 
-            <div>
-                <h2>Follow-up</h2>
-                <p>Monitor post-screening and post-referral care.</p>
-            </div>
-        </section>
-    </main>
+    </div>
 
-    <script src="{% static 'core/core.js' %}"></script>
-</body>
-</html>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'core/core.js' %}"></script>
+{% endblock %}

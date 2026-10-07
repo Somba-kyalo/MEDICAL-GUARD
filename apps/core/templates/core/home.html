@@ -1,39 +1,72 @@
+{% extends "base.html" %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MEDIGUARD</title>
+{% block title %}
+MEDIGUARD | Medical Intelligence, Screening, Referral and Follow-up Platform
+{% endblock %}
 
-    <link rel="stylesheet" href="{% static 'core/core.css' %}">
-</head>
-<body>
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'core/core.css' %}">
+{% endblock %}
 
-    <header>
-        <nav>
-            <a href="{% url 'core:home' %}">MEDIGUARD</a>
+{% block content %}
 
-            <div>
-                <a href="{% url 'core:about' %}">About</a>
-                <a href="{% url 'core:dashboard' %}">Dashboard</a>
+<section class="mediguard-hero">
+
+    <div class="container">
+
+        <div class="row min-vh-100 align-items-center">
+
+            <div class="col-lg-6">
+
+                <span class="text-uppercase fw-semibold">
+                    Healthcare Intelligence Platform
+                </span>
+
+                <h1 class="display-3 fw-bold mt-3">
+                    MEDIGUARD
+                </h1>
+
+                <p class="lead mt-3">
+                    Medical Intelligence, Screening, Referral and Follow-up
+                    Platform designed to support better healthcare workflows.
+                </p>
+
+                <p class="mt-3">
+                    Support structured screening, clinical decision support,
+                    antimicrobial resistance monitoring, referrals,
+                    facility coordination, follow-up care, analytics,
+                    notifications, and auditing.
+                </p>
+
+                <div class="d-flex flex-wrap gap-3 mt-4">
+
+                    <a
+                        href="{% url 'core:dashboard' %}"
+                        class="btn btn-primary btn-lg"
+                    >
+                        Open Dashboard
+                    </a>
+
+                    <a
+                        href="{% url 'core:about' %}"
+                        class="btn btn-outline-light btn-lg"
+                    >
+                        Learn More
+                    </a>
+
+                </div>
+
             </div>
-        </nav>
-    </header>
 
-    <main>
-        <section>
-            <h1>MEDIGUARD</h1>
-            <p>
-                A digital healthcare platform for screening, clinical support,
-                antimicrobial resistance monitoring, referrals, and follow-up care.
-            </p>
+        </div>
 
-            <a href="{% url 'core:dashboard' %}">Open Dashboard</a>
-        </section>
-    </main>
+    </div>
 
-    <script src="{% static 'core/core.js' %}"></script>
-</body>
-</html>
+</section>
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'core/core.js' %}"></script>
+{% endblock %}

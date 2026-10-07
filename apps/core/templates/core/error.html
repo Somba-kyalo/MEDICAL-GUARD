@@ -1,29 +1,79 @@
+{% extends "base.html" %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Error | MEDIGUARD</title>
+{% block title %}
+Error | MEDIGUARD
+{% endblock %}
 
-    <link rel="stylesheet" href="{% static 'core/core.css' %}">
-</head>
-<body>
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'core/core.css' %}">
+{% endblock %}
 
-    <main>
-        <section>
-            <h1>Something went wrong</h1>
+{% block content %}
 
-            <p>
-                MEDIGUARD could not complete your request.
-                Please try again.
-            </p>
+<div class="container">
 
-            <a href="{% url 'core:home' %}">Return Home</a>
-        </section>
-    </main>
+    <section class="min-vh-100 d-flex align-items-center justify-content-center">
 
-    <script src="{% static 'core/core.js' %}"></script>
-</body>
-</html>
+        <div class="row justify-content-center w-100">
+
+            <div class="col-md-8 col-lg-6">
+
+                <div class="card shadow-sm border-0 text-center">
+
+                    <div class="card-body p-5">
+
+                        <div class="mb-4">
+
+                            <span
+                                class="display-4 fw-bold text-danger"
+                            >
+                                500
+                            </span>
+
+                        </div>
+
+                        <h1 class="h2 fw-bold mb-3">
+                            Something went wrong
+                        </h1>
+
+                        <p class="text-secondary mb-4">
+                            MEDIGUARD could not complete your request.
+                            Please try again or return to the homepage.
+                        </p>
+
+                        <div class="d-flex justify-content-center flex-wrap gap-3">
+
+                            <a
+                                href="{% url 'core:home' %}"
+                                class="btn btn-primary"
+                            >
+                                Return Home
+                            </a>
+
+                            <a
+                                href="{% url 'core:dashboard' %}"
+                                class="btn btn-outline-secondary"
+                            >
+                                Dashboard
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'core/core.js' %}"></script>
+{% endblock %}
