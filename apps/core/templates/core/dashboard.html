@@ -15,103 +15,169 @@ Dashboard | MEDIGUARD
 
 {% block content %}
 
-<div class="container-fluid py-4">
+<div class="dashboard-page">
 
-    <div class="mb-4">
-        <h1 class="fw-bold">
-            MEDIGUARD Dashboard
-        </h1>
+    <div class="container-fluid">
 
-        <p class="text-secondary mb-0">
-            Central workspace for the MEDIGUARD healthcare platform.
-        </p>
-    </div>
+        <section class="dashboard-header">
 
-    <div class="row g-4">
+            <div>
+                <span class="dashboard-eyebrow">
+                    MEDIGUARD WORKSPACE
+                </span>
 
-        <div class="col-md-6 col-xl-3">
-            <div class="card h-100 shadow-sm">
-                <div class="card-body">
-                    <h2 class="h5 fw-bold">
+                <h1 class="dashboard-title">
+                    Healthcare Dashboard
+                </h1>
+
+                <p class="dashboard-subtitle">
+                    Central workspace for managing screening,
+                    patients, referrals and follow-up care.
+                </p>
+            </div>
+
+            <div class="dashboard-status">
+                <span class="status-indicator"></span>
+                Platform operational
+            </div>
+
+        </section>
+
+        <section class="dashboard-grid">
+
+            <article class="dashboard-card">
+
+                <div class="dashboard-card__icon">
+                    P
+                </div>
+
+                <div class="dashboard-card__content">
+
+                    <span class="dashboard-card__label">
+                        PATIENT MANAGEMENT
+                    </span>
+
+                    <h2>
                         Patients
                     </h2>
 
-                    <p class="text-secondary">
-                        Manage patient records and longitudinal information.
+                    <p>
+                        Manage patient records and access
+                        longitudinal healthcare information.
                     </p>
 
-                    <a
-                        href="{% url 'PatientsApp:list' %}"
-                        class="btn btn-primary"
-                    >
-                        View Patients
-                    </a>
                 </div>
-            </div>
-        </div>
 
-        <div class="col-md-6 col-xl-3">
-            <div class="card h-100 shadow-sm">
-                <div class="card-body">
-                    <h2 class="h5 fw-bold">
+                <a
+                    href="{% url 'PatientsApp:list' %}"
+                    class="dashboard-card__action"
+                >
+                    View Patients
+                    <span aria-hidden="true">→</span>
+                </a>
+
+            </article>
+
+            <article class="dashboard-card">
+
+                <div class="dashboard-card__icon">
+                    S
+                </div>
+
+                <div class="dashboard-card__content">
+
+                    <span class="dashboard-card__label">
+                        HEALTH SCREENING
+                    </span>
+
+                    <h2>
                         Screening
                     </h2>
 
-                    <p class="text-secondary">
-                        Collect and review structured screening information.
+                    <p>
+                        Collect, assess and review structured
+                        screening information.
                     </p>
 
-                    <a
-                        href="{% url 'ScreeningApp:list' %}"
-                        class="btn btn-primary"
-                    >
-                        Open Screening
-                    </a>
                 </div>
-            </div>
-        </div>
 
-        <div class="col-md-6 col-xl-3">
-            <div class="card h-100 shadow-sm">
-                <div class="card-body">
-                    <h2 class="h5 fw-bold">
+                <a
+                    href="{% url 'ScreeningApp:list' %}"
+                    class="dashboard-card__action"
+                >
+                    Open Screening
+                    <span aria-hidden="true">→</span>
+                </a>
+
+            </article>
+
+            <article class="dashboard-card">
+
+                <div class="dashboard-card__icon">
+                    R
+                </div>
+
+                <div class="dashboard-card__content">
+
+                    <span class="dashboard-card__label">
+                        CARE COORDINATION
+                    </span>
+
+                    <h2>
                         Referrals
                     </h2>
 
-                    <p class="text-secondary">
-                        Coordinate referrals and track their progress.
+                    <p>
+                        Coordinate referrals and monitor
+                        their progress across facilities.
                     </p>
 
-                    <a
-                        href="{% url 'ReferralsApp:list' %}"
-                        class="btn btn-primary"
-                    >
-                        View Referrals
-                    </a>
                 </div>
-            </div>
-        </div>
 
-        <div class="col-md-6 col-xl-3">
-            <div class="card h-100 shadow-sm">
-                <div class="card-body">
-                    <h2 class="h5 fw-bold">
+                <a
+                    href="{% url 'ReferralsApp:list' %}"
+                    class="dashboard-card__action"
+                >
+                    View Referrals
+                    <span aria-hidden="true">→</span>
+                </a>
+
+            </article>
+
+            <article class="dashboard-card">
+
+                <div class="dashboard-card__icon">
+                    F
+                </div>
+
+                <div class="dashboard-card__content">
+
+                    <span class="dashboard-card__label">
+                        CONTINUITY OF CARE
+                    </span>
+
+                    <h2>
                         Follow-up
                     </h2>
 
-                    <p class="text-secondary">
-                        Monitor post-screening and post-referral care.
+                    <p>
+                        Monitor post-screening and post-referral
+                        care activities.
                     </p>
 
-                    <a
-                        href="{% url 'FollowupsApp:list' %}"
-                        class="btn btn-primary"
-                    >
-                        View Follow-ups
-                    </a>
                 </div>
-            </div>
-        </div>
+
+                <a
+                    href="{% url 'FollowupsApp:list' %}"
+                    class="dashboard-card__action"
+                >
+                    View Follow-ups
+                    <span aria-hidden="true">→</span>
+                </a>
+
+            </article>
+
+        </section>
 
     </div>
 

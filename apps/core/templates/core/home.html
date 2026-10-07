@@ -11,49 +11,76 @@ MEDIGUARD | Medical Intelligence, Screening, Referral and Follow-up Platform
 
 {% block content %}
 
-<section class="mediguard-hero">
+<section
+    class="mediguard-hero"
+    style="--hero-image: url('{% static 'images/mediguard-hero.jpg' %}');"
+>
 
-    <div class="container">
+    <div class="mediguard-hero__overlay"></div>
 
-        <div class="row min-vh-100 align-items-center">
+    <div class="container position-relative">
 
-            <div class="col-lg-6">
+        <div class="row align-items-center min-vh-100">
 
-                <span class="text-uppercase fw-semibold">
-                    Healthcare Intelligence Platform
-                </span>
+            <div class="col-lg-7 col-xl-6">
 
-                <h1 class="display-3 fw-bold mt-3">
-                    MEDIGUARD
-                </h1>
+                <div class="hero-content">
 
-                <p class="lead mt-3">
-                    Medical Intelligence, Screening, Referral and Follow-up
-                    Platform designed to support better healthcare workflows.
-                </p>
+                    <span class="hero-eyebrow">
+                        Healthcare Intelligence Platform
+                    </span>
 
-                <p class="mt-3">
-                    Support structured screening, clinical decision support,
-                    antimicrobial resistance monitoring, referrals,
-                    facility coordination, follow-up care, analytics,
-                    notifications, and auditing.
-                </p>
+                    <h1 class="hero-title">
+                        MEDIGUARD
+                    </h1>
 
-                <div class="d-flex flex-wrap gap-3 mt-4">
+                    <p class="hero-lead">
+                        Medical intelligence for connected,
+                        informed and coordinated healthcare.
+                    </p>
 
-                    <a
-                        href="{% url 'core:dashboard' %}"
-                        class="btn btn-primary btn-lg"
-                    >
-                        Open Dashboard
-                    </a>
+                    <p class="hero-description">
+                        Support structured screening, clinical decision
+                        support, antimicrobial resistance monitoring,
+                        referrals, facility coordination, follow-up care,
+                        analytics, notifications and auditing.
+                    </p>
 
-                    <a
-                        href="{% url 'core:about' %}"
-                        class="btn btn-outline-light btn-lg"
-                    >
-                        Learn More
-                    </a>
+                    <div class="hero-actions">
+
+                        <a
+                            href="{% url 'core:dashboard' %}"
+                            class="btn btn-primary btn-lg hero-btn hero-btn--primary"
+                        >
+                            Open Dashboard
+                            <span aria-hidden="true">→</span>
+                        </a>
+
+                        <a
+                            href="{% url 'core:about' %}"
+                            class="btn btn-lg hero-btn hero-btn--secondary"
+                        >
+                            Explore MEDIGUARD
+                        </a>
+
+                    </div>
+
+                    <div class="hero-meta">
+
+                        <span>
+                            <span class="hero-meta__dot"></span>
+                            Clinical support
+                        </span>
+
+                        <span>
+                            Structured workflows
+                        </span>
+
+                        <span>
+                            Connected care
+                        </span>
+
+                    </div>
 
                 </div>
 

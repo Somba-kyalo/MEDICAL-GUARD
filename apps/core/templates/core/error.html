@@ -11,66 +11,52 @@ Error | MEDIGUARD
 
 {% block content %}
 
-<div class="container">
+<section class="error-page">
 
-    <section class="min-vh-100 d-flex align-items-center justify-content-center">
+    <div class="container">
 
-        <div class="row justify-content-center w-100">
+        <div class="error-card">
 
-            <div class="col-md-8 col-lg-6">
+            <span class="error-code">
+                500
+            </span>
 
-                <div class="card shadow-sm border-0 text-center">
+            <span class="error-label">
+                SYSTEM ERROR
+            </span>
 
-                    <div class="card-body p-5">
+            <h1>
+                Something went wrong.
+            </h1>
 
-                        <div class="mb-4">
+            <p>
+                MEDIGUARD could not complete your request.
+                Please try again or return to the platform.
+            </p>
 
-                            <span
-                                class="display-4 fw-bold text-danger"
-                            >
-                                500
-                            </span>
+            <div class="error-actions">
 
-                        </div>
+                <a
+                    href="{% url 'core:home' %}"
+                    class="btn btn-primary btn-lg"
+                >
+                    Return Home
+                </a>
 
-                        <h1 class="h2 fw-bold mb-3">
-                            Something went wrong
-                        </h1>
-
-                        <p class="text-secondary mb-4">
-                            MEDIGUARD could not complete your request.
-                            Please try again or return to the homepage.
-                        </p>
-
-                        <div class="d-flex justify-content-center flex-wrap gap-3">
-
-                            <a
-                                href="{% url 'core:home' %}"
-                                class="btn btn-primary"
-                            >
-                                Return Home
-                            </a>
-
-                            <a
-                                href="{% url 'core:dashboard' %}"
-                                class="btn btn-outline-secondary"
-                            >
-                                Dashboard
-                            </a>
-
-                        </div>
-
-                    </div>
-
-                </div>
+                <a
+                    href="{% url 'core:dashboard' %}"
+                    class="btn btn-outline-secondary btn-lg"
+                >
+                    Open Dashboard
+                </a>
 
             </div>
 
         </div>
 
-    </section>
+    </div>
 
-</div>
+</section>
 
 {% endblock %}
 
