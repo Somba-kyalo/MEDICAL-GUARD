@@ -15,7 +15,6 @@
     --muted: #6b7280;
 
     --radius: 8px;
-    --container-width: 1200px;
 }
 
 * {
@@ -35,135 +34,167 @@ body {
     line-height: 1.6;
 }
 
-a {
-    color: var(--text-primary);
-    text-decoration: none;
-}
 
-a:hover {
-    color: #93c5fd;
-}
-
-header {
-    background: var(--bg-secondary);
-    border-bottom: 1px solid var(--border);
-}
-
-nav {
-    width: min(100% - 32px, var(--container-width));
-    min-height: 64px;
-    margin: 0 auto;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 24px;
-}
-
-nav > a {
-    font-size: 1.15rem;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-}
-
-nav div {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-nav div a {
-    color: var(--text-secondary);
-    font-size: 0.95rem;
-}
-
-nav div a:hover {
-    color: var(--text-primary);
-}
+/*
+|--------------------------------------------------------------------------
+| Global Core Page Styling
+|--------------------------------------------------------------------------
+*/
 
 main {
-    width: min(100% - 32px, var(--container-width));
-    margin: 0 auto;
-    padding: 64px 0;
+    min-width: 0;
 }
 
-section {
-    margin-bottom: 40px;
-}
-
-h1,
-h2 {
-    margin-top: 0;
-    line-height: 1.2;
-}
-
-h1 {
-    margin-bottom: 16px;
-    font-size: clamp(2rem, 5vw, 3.5rem);
-}
-
-h2 {
-    font-size: 1.35rem;
-}
-
-p {
-    max-width: 760px;
-    color: var(--text-secondary);
-}
-
-section > a {
-    display: inline-block;
-    margin-top: 16px;
-    padding: 10px 18px;
-
-    background: var(--primary);
-    border: 1px solid var(--primary);
+.card {
     border-radius: var(--radius);
+}
 
+
+/*
+|--------------------------------------------------------------------------
+| Homepage Hero
+|--------------------------------------------------------------------------
+*/
+
+.mediguard-hero {
+    position: relative;
+    min-height: calc(100vh - 56px);
+
+    display: flex;
+    align-items: center;
+
+    background-image: url("/static/images/mediguard-hero.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    overflow: hidden;
+}
+
+.mediguard-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: rgba(11, 18, 32, 0.68);
+
+    z-index: 0;
+}
+
+.mediguard-hero .container {
+    position: relative;
+    z-index: 1;
+}
+
+.mediguard-hero h1 {
     color: #ffffff;
-    font-weight: 600;
+    letter-spacing: 0.03em;
 }
 
-section > a:hover {
-    background: var(--primary-hover);
-    border-color: var(--primary-hover);
-    color: #ffffff;
+.mediguard-hero p {
+    color: #d1d5db;
+    max-width: 680px;
 }
 
-main > section:nth-child(2) {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 20px;
+.mediguard-hero .text-uppercase {
+    color: #93c5fd;
+    letter-spacing: 0.08em;
+    font-size: 0.85rem;
 }
 
-main > section:nth-child(2) > div {
-    padding: 24px;
+
+/*
+|--------------------------------------------------------------------------
+| Dashboard
+|--------------------------------------------------------------------------
+*/
+
+.dashboard-card {
     background: var(--bg-surface);
     border: 1px solid var(--border);
     border-radius: var(--radius);
 }
 
-main > section:nth-child(2) p {
-    margin-bottom: 0;
+
+/*
+|--------------------------------------------------------------------------
+| About Page
+|--------------------------------------------------------------------------
+*/
+
+.about-section {
+    max-width: 1100px;
+    margin: 0 auto;
 }
 
-@media (max-width: 700px) {
-    nav {
-        padding: 12px 0;
-        flex-direction: column;
-        align-items: flex-start;
+
+/*
+|--------------------------------------------------------------------------
+| Sidebar
+|--------------------------------------------------------------------------
+*/
+
+.sidebar {
+    width: 240px;
+    min-width: 240px;
+    min-height: 100%;
+}
+
+.sidebar .nav-link {
+    border-radius: 6px;
+    margin-bottom: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.sidebar .nav-link:hover {
+    background-color: #1f2937;
+    color: #ffffff !important;
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Error Page
+|--------------------------------------------------------------------------
+*/
+
+.error-page {
+    min-height: 70vh;
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Responsive Layout
+|--------------------------------------------------------------------------
+*/
+
+@media (max-width: 991.98px) {
+
+    .sidebar {
+        width: 210px;
+        min-width: 210px;
     }
 
-    nav div {
+    .mediguard-hero {
+        background-position: center;
+    }
+}
+
+
+@media (max-width: 767.98px) {
+
+    .sidebar {
         width: 100%;
-        gap: 16px;
+        min-width: 100%;
     }
 
-    main {
-        padding: 40px 0;
+    .mediguard-hero {
+        min-height: calc(100vh - 56px);
+        background-position: 65% center;
     }
 
-    main > section:nth-child(2) {
-        grid-template-columns: 1fr;
+    .mediguard-hero h1 {
+        font-size: 2.7rem;
     }
 }
