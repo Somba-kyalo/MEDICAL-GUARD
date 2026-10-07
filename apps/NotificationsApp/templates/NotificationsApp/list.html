@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'NotificationsApp/NotificationsApp.css' %}">
+</head>
+<body>
+
+<div class="container py-4">
+
+    <div class="notification-header d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h1 class="page-title">Notifications</h1>
+            <p class="page-subtitle">Stay updated with important patient and system activities.</p>
+        </div>
+
+        <div class="header-actions">
+            <button type="button" class="btn btn-primary" id="mark-all-read-btn">
+                Mark All as Read
+            </button>
+
+            <button type="button" class="btn btn-outline-danger" id="delete-read-btn">
+                Delete Read
+            </button>
+        </div>
+    </div>
+
+    <div class="notification-stats row g-3 mb-4">
+        <div class="col-md-4">
+            <div class="stat-card">
+                <span class="stat-label">Total</span>
+                <strong id="total-count">0</strong>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="stat-card">
+                <span class="stat-label">Unread</span>
+                <strong id="unread-count">0</strong>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="stat-card">
+                <span class="stat-label">Read</span>
+                <strong id="read-count">0</strong>
+            </div>
+        </div>
+    </div>
+
+    <div id="notification-message"></div>
+
+    <div class="notification-panel">
+        <div class="panel-header d-flex justify-content-between align-items-center">
+            <h2>All Notifications</h2>
+
+            <button type="button" class="btn btn-sm btn-outline-secondary" id="refresh-btn">
+                Refresh
+            </button>
+        </div>
+
+        <div id="notifications-container">
+            <div class="text-center py-5" id="loading-state">
+                Loading notifications...
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script src="{% static 'NotificationsApp/NotificationsApp.js' %}"></script>
+
+</body>
+</html>
