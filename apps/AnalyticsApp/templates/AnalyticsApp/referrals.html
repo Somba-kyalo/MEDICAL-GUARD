@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AMR Analytics | MEDICAL-GUARD</title>
+    <title>Referral Analytics | MEDICAL-GUARD</title>
 
     <link
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
@@ -33,10 +33,10 @@
             <a class="nav-link" href="{% url 'AnalyticsApp:screening' %}">
                 Screening
             </a>
-            <a class="nav-link active" href="{% url 'AnalyticsApp:amr' %}">
+            <a class="nav-link" href="{% url 'AnalyticsApp:amr' %}">
                 AMR
             </a>
-            <a class="nav-link" href="{% url 'AnalyticsApp:referrals' %}">
+            <a class="nav-link active" href="{% url 'AnalyticsApp:referrals' %}">
                 Referrals
             </a>
         </div>
@@ -46,9 +46,9 @@
 <main class="container-fluid py-4">
 
     <div class="mb-4">
-        <h1 class="fw-bold">AMR Analytics</h1>
+        <h1 class="fw-bold">Referral Analytics</h1>
         <p class="text-muted">
-            Antimicrobial resistance records and resistance test statistics.
+            Referral status and priority overview.
         </p>
     </div>
 
@@ -59,8 +59,8 @@
         <div class="col-md-6 col-xl-3">
             <div class="card analytics-card">
                 <div class="card-body">
-                    <span class="text-muted">AMR Records</span>
-                    <h3 id="amrRecords">0</h3>
+                    <span class="text-muted">Total Referrals</span>
+                    <h3 id="referralTotal">0</h3>
                 </div>
             </div>
         </div>
@@ -68,8 +68,8 @@
         <div class="col-md-6 col-xl-3">
             <div class="card analytics-card">
                 <div class="card-body">
-                    <span class="text-muted">Resistance Tests</span>
-                    <h3 id="resistanceTests">0</h3>
+                    <span class="text-muted">Accepted</span>
+                    <h3 id="referralAccepted">0</h3>
                 </div>
             </div>
         </div>
@@ -77,8 +77,8 @@
         <div class="col-md-6 col-xl-3">
             <div class="card analytics-card">
                 <div class="card-body">
-                    <span class="text-muted">Resistant Results</span>
-                    <h3 id="resistantTests">0</h3>
+                    <span class="text-muted">In Progress</span>
+                    <h3 id="referralInProgress">0</h3>
                 </div>
             </div>
         </div>
@@ -86,8 +86,8 @@
         <div class="col-md-6 col-xl-3">
             <div class="card analytics-card">
                 <div class="card-body">
-                    <span class="text-muted">Urgent Records</span>
-                    <h3 id="urgentAmr">0</h3>
+                    <span class="text-muted">Completed</span>
+                    <h3 id="referralCompleted">0</h3>
                 </div>
             </div>
         </div>
@@ -99,25 +99,25 @@
         <div class="col-lg-6">
             <div class="card">
                 <div class="card-header">
-                    <h5 class="mb-0">AMR Status</h5>
+                    <h5 class="mb-0">Referral Status</h5>
                 </div>
                 <div class="card-body">
                     <div class="row text-center g-3">
                         <div class="col-6">
-                            <span class="text-muted">Open</span>
-                            <h4 id="amrOpen">0</h4>
+                            <span class="text-muted">Pending</span>
+                            <h4 id="referralPending">0</h4>
                         </div>
                         <div class="col-6">
-                            <span class="text-muted">Under Review</span>
-                            <h4 id="amrUnderReview">0</h4>
+                            <span class="text-muted">Sent</span>
+                            <h4 id="referralSent">0</h4>
                         </div>
                         <div class="col-6">
-                            <span class="text-muted">Reviewed</span>
-                            <h4 id="amrReviewed">0</h4>
+                            <span class="text-muted">Declined</span>
+                            <h4 id="referralDeclined">0</h4>
                         </div>
                         <div class="col-6">
-                            <span class="text-muted">Closed</span>
-                            <h4 id="amrClosed">0</h4>
+                            <span class="text-muted">Cancelled</span>
+                            <h4 id="referralCancelled">0</h4>
                         </div>
                     </div>
                 </div>
@@ -127,25 +127,17 @@
         <div class="col-lg-6">
             <div class="card">
                 <div class="card-header">
-                    <h5 class="mb-0">Resistance Results</h5>
+                    <h5 class="mb-0">Priority</h5>
                 </div>
                 <div class="card-body">
                     <div class="row text-center g-3">
                         <div class="col-6">
-                            <span class="text-muted">Susceptible</span>
-                            <h4 id="susceptibleResults">0</h4>
+                            <span class="text-muted">Urgent</span>
+                            <h4 id="referralUrgent">0</h4>
                         </div>
                         <div class="col-6">
-                            <span class="text-muted">Intermediate</span>
-                            <h4 id="intermediateResults">0</h4>
-                        </div>
-                        <div class="col-6">
-                            <span class="text-muted">Resistant</span>
-                            <h4 id="resistantResults">0</h4>
-                        </div>
-                        <div class="col-6">
-                            <span class="text-muted">Unknown</span>
-                            <h4 id="unknownResults">0</h4>
+                            <span class="text-muted">Emergency</span>
+                            <h4 id="referralEmergency">0</h4>
                         </div>
                     </div>
                 </div>
