@@ -1,130 +1,198 @@
+{% extends "base.html" %}
 {% load static %}
 
-<!DOCTYPE html>
+{% block title %}
+Register | MEDIGUARD
+{% endblock %}
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register | MEDIGUARD</title>
-    <link rel="stylesheet" href="{% static 'css/AccountsApp/AccountsApp.css' %}">
-</head>
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/AccountsApp/AccountsApp.css' %}">
+{% endblock %}
 
-<body>
-
-<header>
-    <nav>
-        <a href="{% url 'core:home' %}">MEDIGUARD</a>
-
-
-    <div>
-        <a href="{% url 'core:about' %}">About</a>
-        <a href="{% url 'AccountsApp:login' %}">Login</a>
-    </div>
-</nav>
-
-
-</header>
+{% block content %}
 
 <main class="accounts-main">
 
+    <section class="accounts-section">
 
-<section class="accounts-section">
-    <h1>Create account</h1>
+        <div class="container">
 
-    <p>
-        Register as a patient to access MEDIGUARD.
-    </p>
+            <div class="row justify-content-center">
 
-    {% if messages %}
-        {% for message in messages %}
-            <p class="accounts-message">{{ message }}</p>
-        {% endfor %}
-    {% endif %}
+                <div class="col-md-8 col-lg-6">
 
-    <form method="post" class="accounts-form">
-        {% csrf_token %}
+                    <div class="card shadow-sm">
 
-        <div class="accounts-field">
-            <label for="username">Username</label>
+                        <div class="card-body p-4 p-md-5">
 
-            <input
-                type="text"
-                id="username"
-                name="username"
-                required
-                autocomplete="username"
-            >
+                            <div class="mb-4">
+
+                                <h1 class="h2 fw-bold">
+                                    Create account
+                                </h1>
+
+                                <p class="text-secondary mb-0">
+                                    Register as a patient to access MEDIGUARD.
+                                </p>
+
+                            </div>
+
+                            <form method="post" class="accounts-form">
+
+                                {% csrf_token %}
+
+                                <div class="accounts-field mb-3">
+
+                                    <label
+                                        for="username"
+                                        class="form-label"
+                                    >
+                                        Username
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="username"
+                                        name="username"
+                                        class="form-control"
+                                        required
+                                        autocomplete="username"
+                                    >
+
+                                </div>
+
+                                <div class="accounts-field mb-3">
+
+                                    <label
+                                        for="email"
+                                        class="form-label"
+                                    >
+                                        Email
+                                    </label>
+
+                                    <input
+                                        type="email"
+                                        id="email"
+                                        name="email"
+                                        class="form-control"
+                                        autocomplete="email"
+                                    >
+
+                                </div>
+
+                                <div class="accounts-field mb-3">
+
+                                    <label
+                                        for="first_name"
+                                        class="form-label"
+                                    >
+                                        First name
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="first_name"
+                                        name="first_name"
+                                        class="form-control"
+                                        autocomplete="given-name"
+                                    >
+
+                                </div>
+
+                                <div class="accounts-field mb-3">
+
+                                    <label
+                                        for="last_name"
+                                        class="form-label"
+                                    >
+                                        Last name
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="last_name"
+                                        name="last_name"
+                                        class="form-control"
+                                        autocomplete="family-name"
+                                    >
+
+                                </div>
+
+                                <div class="accounts-field mb-3">
+
+                                    <label
+                                        for="password"
+                                        class="form-label"
+                                    >
+                                        Password
+                                    </label>
+
+                                    <input
+                                        type="password"
+                                        id="password"
+                                        name="password"
+                                        class="form-control"
+                                        required
+                                        autocomplete="new-password"
+                                    >
+
+                                </div>
+
+                                <div class="accounts-field mb-4">
+
+                                    <label
+                                        for="confirm_password"
+                                        class="form-label"
+                                    >
+                                        Confirm password
+                                    </label>
+
+                                    <input
+                                        type="password"
+                                        id="confirm_password"
+                                        name="confirm_password"
+                                        class="form-control"
+                                        required
+                                        autocomplete="new-password"
+                                    >
+
+                                </div>
+
+                                <button
+                                    type="submit"
+                                    class="btn btn-primary w-100"
+                                >
+                                    Create account
+                                </button>
+
+                            </form>
+
+                            <p class="accounts-links text-center mt-4 mb-0">
+
+                                Already have an account?
+
+                                <a href="{% url 'AccountsApp:login' %}">
+                                    Sign in
+                                </a>
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
         </div>
 
-        <div class="accounts-field">
-            <label for="email">Email</label>
-
-            <input
-                type="email"
-                id="email"
-                name="email"
-                autocomplete="email"
-            >
-        </div>
-
-        <div class="accounts-field">
-            <label for="first_name">First name</label>
-
-            <input
-                type="text"
-                id="first_name"
-                name="first_name"
-                autocomplete="given-name"
-            >
-        </div>
-
-        <div class="accounts-field">
-            <label for="last_name">Last name</label>
-
-            <input
-                type="text"
-                id="last_name"
-                name="last_name"
-                autocomplete="family-name"
-            >
-        </div>
-
-        <div class="accounts-field">
-            <label for="password">Password</label>
-
-            <input
-                type="password"
-                id="password"
-                name="password"
-                required
-                autocomplete="new-password"
-            >
-        </div>
-
-        <div class="accounts-field">
-            <label for="confirm_password">Confirm password</label>
-
-            <input
-                type="password"
-                id="confirm_password"
-                name="confirm_password"
-                required
-                autocomplete="new-password"
-            >
-        </div>
-
-        <button type="submit">Create account</button>
-    </form>
-
-    <p class="accounts-links">
-        Already have an account?
-        <a href="{% url 'AccountsApp:login' %}">Sign in</a>
-    </p>
-</section>
-
+    </section>
 
 </main>
+
+{% endblock %}
+
+{% block extra_js %}
 <script src="{% static 'AccountsApp/AccountsApp.js' %}"></script>
-</body>
-</html>
+{% endblock %}

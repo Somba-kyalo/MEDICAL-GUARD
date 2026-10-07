@@ -1,91 +1,160 @@
+{% extends "base.html" %}
 {% load static %}
 
-<!DOCTYPE html>
+{% block title %}
+Profile | MEDIGUARD
+{% endblock %}
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile | MEDIGUARD</title>
-    <link rel="stylesheet" href="{% static 'css/AccountsApp/AccountsApp.css' %}">
-</head>
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/AccountsApp/AccountsApp.css' %}">
+{% endblock %}
 
-<body>
-
-<header>
-    <nav>
-        <a href="{% url 'core:home' %}">MEDIGUARD</a>
-
-
-    <div>
-        <a href="{% url 'core:dashboard' %}">Dashboard</a>
-        <a href="{% url 'AccountsApp:logout' %}">Logout</a>
-    </div>
-</nav>
-
-
-</header>
+{% block content %}
 
 <main class="accounts-main">
 
+    <section class="accounts-section">
 
-<section class="accounts-section">
-    <h1>Your profile</h1>
+        <div class="container">
 
-    <p>
-        Account information associated with your MEDIGUARD account.
-    </p>
-</section>
+            <div class="mb-4">
 
-<section class="accounts-profile-grid">
+                <h1 class="h2 fw-bold">
+                    Your profile
+                </h1>
 
-    <div class="accounts-card">
-        <h2>Account details</h2>
+                <p class="text-secondary mb-0">
+                    Account information associated with your MEDIGUARD account.
+                </p>
 
-        <p>
-            <strong>Username:</strong>
-            {{ user.username }}
-        </p>
+            </div>
 
-        <p>
-            <strong>Email:</strong>
-            {{ user.email|default:"Not provided" }}
-        </p>
+            <div class="row g-4">
 
-        <p>
-            <strong>First name:</strong>
-            {{ user.first_name|default:"Not provided" }}
-        </p>
+                <div class="col-md-7">
 
-        <p>
-            <strong>Last name:</strong>
-            {{ user.last_name|default:"Not provided" }}
-        </p>
+                    <div class="accounts-card card shadow-sm h-100">
 
-        <p>
-            <strong>Role:</strong>
-            {{ user.get_role_display }}
-        </p>
-    </div>
+                        <div class="card-body p-4">
 
-    <div class="accounts-card">
-        <h2>Account status</h2>
+                            <h2 class="h5 fw-bold mb-4">
+                                Account details
+                            </h2>
 
-        <p>
-            <strong>Active:</strong>
-            {% if user.is_active %}Yes{% else %}No{% endif %}
-        </p>
+                            <div class="mb-3">
 
-        <p>
-            <strong>Staff:</strong>
-            {% if user.is_staff %}Yes{% else %}No{% endif %}
-        </p>
-    </div>
+                                <strong>Username:</strong>
 
-</section>
+                                <span>
+                                    {{ user.username }}
+                                </span>
 
+                            </div>
+
+                            <div class="mb-3">
+
+                                <strong>Email:</strong>
+
+                                <span>
+                                    {{ user.email|default:"Not provided" }}
+                                </span>
+
+                            </div>
+
+                            <div class="mb-3">
+
+                                <strong>First name:</strong>
+
+                                <span>
+                                    {{ user.first_name|default:"Not provided" }}
+                                </span>
+
+                            </div>
+
+                            <div class="mb-3">
+
+                                <strong>Last name:</strong>
+
+                                <span>
+                                    {{ user.last_name|default:"Not provided" }}
+                                </span>
+
+                            </div>
+
+                            <div>
+
+                                <strong>Role:</strong>
+
+                                <span>
+                                    {{ user.get_role_display }}
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-5">
+
+                    <div class="accounts-card card shadow-sm h-100">
+
+                        <div class="card-body p-4">
+
+                            <h2 class="h5 fw-bold mb-4">
+                                Account status
+                            </h2>
+
+                            <div class="mb-3">
+
+                                <strong>Active:</strong>
+
+                                {% if user.is_active %}
+                                    <span class="text-success">
+                                        Yes
+                                    </span>
+                                {% else %}
+                                    <span class="text-danger">
+                                        No
+                                    </span>
+                                {% endif %}
+
+                            </div>
+
+                            <div>
+
+                                <strong>Staff:</strong>
+
+                                {% if user.is_staff %}
+                                    <span class="text-success">
+                                        Yes
+                                    </span>
+                                {% else %}
+                                    <span class="text-danger">
+                                        No
+                                    </span>
+                                {% endif %}
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
 
 </main>
 
-</body>
-</html>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'AccountsApp/AccountsApp.js' %}"></script>
+{% endblock %}

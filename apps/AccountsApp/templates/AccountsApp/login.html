@@ -1,83 +1,121 @@
+{% extends "base.html" %}
 {% load static %}
 
-<!DOCTYPE html>
+{% block title %}
+Login | MEDIGUARD
+{% endblock %}
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login | MEDIGUARD</title>
-    <link rel="stylesheet" href="{% static 'css/AccountsApp/AccountsApp.css' %}">
-</head>
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/AccountsApp/AccountsApp.css' %}">
+{% endblock %}
 
-<body>
-
-<header>
-    <nav>
-        <a href="{% url 'core:home' %}">MEDIGUARD</a>
-
-
-    <div>
-        <a href="{% url 'core:about' %}">About</a>
-        <a href="{% url 'AccountsApp:register' %}">Register</a>
-    </div>
-</nav>
-
-
-</header>
+{% block content %}
 
 <main class="accounts-main">
+
     <section class="accounts-section">
 
+        <div class="container">
 
-    <h1>Sign in</h1>
-    <p>Access your MEDIGUARD account.</p>
+            <div class="row justify-content-center">
 
-    {% if messages %}
-        {% for message in messages %}
-            <p class="accounts-message">{{ message }}</p>
-        {% endfor %}
-    {% endif %}
+                <div class="col-md-8 col-lg-5">
 
-    <form method="post" class="accounts-form">
-        {% csrf_token %}
+                    <div class="card shadow-sm">
 
-        <div class="accounts-field">
-            <label for="username">Username</label>
+                        <div class="card-body p-4 p-md-5">
 
-            <input
-                type="text"
-                id="username"
-                name="username"
-                required
-                autocomplete="username"
-            >
+                            <div class="mb-4">
+
+                                <h1 class="h2 fw-bold">
+                                    Sign in
+                                </h1>
+
+                                <p class="text-secondary mb-0">
+                                    Access your MEDIGUARD account.
+                                </p>
+
+                            </div>
+
+                            <form method="post" class="accounts-form">
+
+                                {% csrf_token %}
+
+                                <div class="accounts-field mb-3">
+
+                                    <label
+                                        for="username"
+                                        class="form-label"
+                                    >
+                                        Username
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="username"
+                                        name="username"
+                                        class="form-control"
+                                        required
+                                        autocomplete="username"
+                                    >
+
+                                </div>
+
+                                <div class="accounts-field mb-4">
+
+                                    <label
+                                        for="password"
+                                        class="form-label"
+                                    >
+                                        Password
+                                    </label>
+
+                                    <input
+                                        type="password"
+                                        id="password"
+                                        name="password"
+                                        class="form-control"
+                                        required
+                                        autocomplete="current-password"
+                                    >
+
+                                </div>
+
+                                <button
+                                    type="submit"
+                                    class="btn btn-primary w-100"
+                                >
+                                    Sign in
+                                </button>
+
+                            </form>
+
+                            <p class="accounts-links text-center mt-4 mb-0">
+
+                                Don't have an account?
+
+                                <a href="{% url 'AccountsApp:register' %}">
+                                    Create one
+                                </a>
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
         </div>
 
-        <div class="accounts-field">
-            <label for="password">Password</label>
-
-            <input
-                type="password"
-                id="password"
-                name="password"
-                required
-                autocomplete="current-password"
-            >
-        </div>
-
-        <button type="submit">Sign in</button>
-    </form>
-
-    <p class="accounts-links">
-        Don't have an account?
-        <a href="{% url 'AccountsApp:register' %}">Create one</a>
-    </p>
-
-</section>
-
+    </section>
 
 </main>
 
-</body>
-</html>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'AccountsApp/AccountsApp.js' %}"></script>
+{% endblock %}
