@@ -1,0 +1,80 @@
+<aside class="sidebar bg-dark text-white">
+
+
+<div class="p-3">
+
+    <h6 class="text-uppercase text-secondary mb-3">
+        MEDIGUARD
+    </h6>
+
+    <nav class="nav flex-column">
+
+        <a
+            href="{% url 'core:dashboard' %}"
+            class="nav-link text-white"
+        >
+            Dashboard
+        </a>
+
+        <a
+            href="{% url 'PatientsApp:list' %}"
+            class="nav-link text-white"
+        >
+            Patients
+        </a>
+
+        <a
+            href="{% url 'ScreeningApp:list' %}"
+            class="nav-link text-white"
+        >
+            Screening
+        </a>
+
+        <a
+            href="{% url 'AmrApp:dashboard' %}"
+            class="nav-link text-white"
+        >
+            AMR
+        </a>
+
+        <a
+            href="{% url 'ReferralsApp:list' %}"
+            class="nav-link text-white"
+        >
+            Referrals
+        </a>
+
+        <a
+            href="{% url 'FollowupsApp:list' %}"
+            class="nav-link text-white"
+        >
+            Follow-ups
+        </a>
+
+        <a
+            href="{% url 'FacilitiesApp:list' %}"
+            class="nav-link text-white"
+        >
+            Facilities
+        </a>
+
+        <a
+            href="{% url 'AnalyticsApp:dashboard' %}"
+            class="nav-link text-white"
+        >
+            Analytics
+        </a>
+
+        <a
+            href="{% url 'NotificationsApp:list' %}"
+            class="nav-link text-white"
+        >
+            Notifications
+        </a>
+
+    </nav>
+
+</div>
+
+
+</aside>
