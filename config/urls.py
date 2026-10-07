@@ -12,4 +12,5 @@ urlpatterns = [
     path("referrals/", include("apps.ReferralsApp.urls")),
     path("facilities/", include("apps.FacilitiesApp.urls")),
     path("followups/", include("apps.FollowupsApp.urls")),
+    path("notifications/", include("apps.NotificationsApp.urls")),
 ]
