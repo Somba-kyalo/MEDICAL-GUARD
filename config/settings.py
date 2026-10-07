@@ -44,6 +44,34 @@ ALLOWED_HOSTS = [
 ]
 
 
+CSRF_TRUSTED_ORIGINS = [
+    origin.strip()
+    for origin in os.environ.get(
+        "DJANGO_CSRF_TRUSTED_ORIGINS",
+        "",
+    ).split(",")
+    if origin.strip()
+]
+
+SECURE_SSL_REDIRECT = (
+    os.environ.get("DJANGO_SECURE_SSL_REDIRECT", "False").lower() == "true"
+)
+
+SESSION_COOKIE_SECURE = (
+    os.environ.get("DJANGO_SESSION_COOKIE_SECURE", "False").lower() == "true"
+)
+
+CSRF_COOKIE_SECURE = (
+    os.environ.get("DJANGO_CSRF_COOKIE_SECURE", "False").lower() == "true"
+)
+
+SECURE_PROXY_SSL_HEADER = (
+    ("HTTP_X_FORWARDED_PROTO", "https")
+    if os.environ.get("DJANGO_SECURE_PROXY", "False").lower() == "true"
+    else None
+)
+
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -150,7 +178,10 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 
-STATIC_ROOT = BASE_DIR / "staticfiles"  # Email
+STATIC_ROOT = BASE_DIR / "staticfiles"  
+
+
+# Email
 # https://docs.djangoproject.com/en/6.1/topics/email/#topic-email-configuration
 
 MAILERS = {
